@@ -12,7 +12,6 @@ Service_log class
 
 class Person(models.Model):
       name = models.CharField(max_length=100)
-      name="william"
       
 
 
