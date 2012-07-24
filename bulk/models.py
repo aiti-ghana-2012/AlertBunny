@@ -20,7 +20,10 @@ a FK field to Group class and Customer
 so the contact class has two FK fields  
 
 /*************************************/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64ca3bdec004c48b3ac61be6176fbd824fc460c8
 '''
 
 
@@ -209,7 +212,6 @@ admin.site.register(Message)
 
 admin.site.register(Contact)
 
-admin.site.register(Person)
 
 admin.site.register(Customer)
 

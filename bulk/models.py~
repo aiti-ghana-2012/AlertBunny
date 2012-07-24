@@ -20,7 +20,10 @@ a FK field to Group class and Customer
 so the contact class has two FK fields  
 
 /*************************************/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64ca3bdec004c48b3ac61be6176fbd824fc460c8
 '''
 
 
@@ -55,7 +58,13 @@ class Customer(models.Model):
 '''
 describing the customer class
 inside the customer class we have an email,mobile number ,date of birth ,customer's company name and then their postal address.
-the email field should be unique in our database and have a maximum length of 254 and()
+the email field should be unique in our database and must have  a maximum length of 254 
+the mobile number and the companyname are also unique(database)
+
+
+
+when we refer to the customer class in our views we have email as our initials
+
 
  
 '''
@@ -85,7 +94,14 @@ class Contact(models.Model):
       def __unicode__(self):
            return self.groupname
 
+'''
+the contact refers to all contacts under a particular customer.
+there is a one to many relationship between the customer and the contact class 
+that is why we have the foreignkey at the contact class
 
+
+when we refer to the contact class in our views we have groupname as our initials 
+'''
 
 
 
@@ -104,7 +120,20 @@ class Group(models.Model):
       def __unicode__(self):
              return self.groupname
 
+'''
+the class group is very important because it provides a group name for each contacts
+so we have attribute like datecreated , dateupdated
 
+
+we also have a customer attribute that is related to the customer class
+NB  that it has a related name group with respect to the class Customer
+
+
+
+the contact attribute also relate the class Contacts with the class Group
+So  a contact may have many groups.(many to one relationship)
+
+'''
 
 
 class Message(models.Model):
@@ -130,7 +159,15 @@ class Message(models.Model):
       def __unicode__(self):
              return self.subject
 
+'''
+in the message class we have the subject, sender and one who receives the message
+the customer attribute only depict an individual (customer ) with a lot of messages 
 
+
+the functions will be explained later
+
+when we refer to the Message  class in our views we have subject as our initials 
+'''
 
 
 
@@ -154,7 +191,21 @@ class Servicelog(models.Model):
       def __unicode__(self):
              return self.smsstatus
 
+'''
+this class only has  and smsstatus attribute
+this will depict the status of the sms sent to the gateway
 
+
+functions will be explained later
+
+when we refer to the servicelog class in our views we have smsstatus as our initials 
+'''
+
+
+
+'''
+registering all our classes 
+'''
 admin.site.register(Servicelog)
 
 admin.site.register(Message)
