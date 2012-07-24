@@ -114,7 +114,7 @@ class Group(models.Model):
       dateupdated=models.DateField(auto_now=True)
       customer=models.ForeignKey(Customer,related_name='groups')
 
-      contact=models.ForeignKey(Contacts,related_name='groups')
+      contact=models.ForeignKey(Contact,related_name='groups')
      
 
       def __unicode__(self):

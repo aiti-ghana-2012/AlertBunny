@@ -212,7 +212,6 @@ admin.site.register(Message)
 
 admin.site.register(Contact)
 
-admin.site.register(Person)
 
 admin.site.register(Customer)
 
