@@ -112,6 +112,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'south',
     'bulk',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

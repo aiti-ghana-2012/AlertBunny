@@ -110,7 +110,6 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'southtut',
     'south',
     'bulk',
     'django.contrib.auth',
