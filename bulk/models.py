@@ -9,6 +9,17 @@ Contact class
 Message class
 Service_log class
 
+/NANA B./
+destroy person class.
+include all its attributes to Customer.
+create class Group with attributes
+groupname, date_created, date_updated. They should be like the blog project dates.
+it should have a FK field that links to Customer
+and in the Contact class it should have
+a FK field to Group class and Customer
+so the contact class has two FK fields  
+
+/*************************************/
 '''
 
 class Person(models.Model):
