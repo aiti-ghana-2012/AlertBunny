@@ -9,20 +9,20 @@ Contact class
 Message class
 Service_log class
 
+/NANA B./
+destroy person class.
+include all its attributes to Customer.
+create class Group with attributes
+groupname, date_created, date_updated. They should be like the blog project dates.
+it should have a FK field that links to Customer
+and in the Contact class it should have
+a FK field to Group class and Customer
+so the contact class has two FK fields  
+
+/*************************************/
+
 '''
 
-class Person(models.Model):
-      fistname = models.CharField(max_length=30)
-
-      lastname = models.CharField(max_length=30)
-
-      email = models.EmailField(max_length=254,unique=True)
-
-      mobilenumber=models.PositiveIntegerField(blank=True)
-      
-
-      def __unicode__(self):
-             return self.email
 
 
 
@@ -30,6 +30,14 @@ class Person(models.Model):
 
 
 class Customer(models.Model):
+      fistname = models.CharField(max_length=30)
+
+      lastname = models.CharField(max_length=30)
+
+      email = models.EmailField(max_length=254,unique=True)
+
+      mobilenumber=models.PositiveIntegerField(blank=True,unique=True)
+
       dateofbirth=models.DateField()
 
       gender=models.CharField(max_length=30)
@@ -40,10 +48,61 @@ class Customer(models.Model):
 
 
       
+ 
+      def __unicode__(self):
+             return self.email
+
+'''
+describing the customer class
+inside the customer class we have an email,mobile number ,date of birth ,customer's company name and then their postal address.
+the email field should be unique in our database and have a maximum length of 254 and()
+
+ 
+'''
+
+class Contact(models.Model):
+
+      groupname=models.CharField(max_length=100)
+
+
+
+      customer=models.ForeignKey(Customer,related_name='contacts')
+      
+      
+      def viewcontact():
+          pass
+      def updatecontact():
+          pass
+      def deletecontact():
+          pass
+      def saveContact():
+          pass
+
+
+
+     
 
       def __unicode__(self):
-             return self.companyname
+           return self.groupname
 
+
+
+
+
+
+
+class Group(models.Model):
+      groupname=models.CharField(max_length=30)
+
+      datecreated=models.DateField(auto_now=True)
+      dateupdated=models.DateField(auto_now=True)
+      customer=models.ForeignKey(Customer,related_name='groups')
+
+      contact=models.ForeignKey(Contacts,related_name='groups')
+     
+
+      def __unicode__(self):
+             return self.groupname
 
 
 
@@ -78,25 +137,8 @@ class Message(models.Model):
 
 
 
-class Contact(models.Model):
 
-      groupname=models.CharField(max_length=100)
-
-
-
-      customer=models.ForeignKey(Customer,related_name='contacts')
-      
-      def viewcontact():
-          pass
-      def updatecontact():
-          pass
-      def deletecontact():
-          pass
-      def saveContact():
-          pass
-
-      def __unicode__(self):
-           return self.groupname
+     
 
 
 

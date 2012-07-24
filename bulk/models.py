@@ -9,20 +9,20 @@ Contact class
 Message class
 Service_log class
 
+/NANA B./
+destroy person class.
+include all its attributes to Customer.
+create class Group with attributes
+groupname, date_created, date_updated. They should be like the blog project dates.
+it should have a FK field that links to Customer
+and in the Contact class it should have
+a FK field to Group class and Customer
+so the contact class has two FK fields  
+
+/*************************************/
+
 '''
 
-class Person(models.Model):
-      fistname = models.CharField(max_length=30)
-
-      lastname = models.CharField(max_length=30)
-
-      email = models.EmailField(max_length=254,unique=True)
-
-      mobilenumber=models.PositiveIntegerField(blank=True)
-      
-
-      def __unicode__(self):
-             return self.email
 
 
 
@@ -30,6 +30,14 @@ class Person(models.Model):
 
 
 class Customer(models.Model):
+      fistname = models.CharField(max_length=30)
+
+      lastname = models.CharField(max_length=30)
+
+      email = models.EmailField(max_length=254,unique=True)
+
+      mobilenumber=models.PositiveIntegerField(blank=True,unique=True)
+
       dateofbirth=models.DateField()
 
       gender=models.CharField(max_length=30)
@@ -40,12 +48,89 @@ class Customer(models.Model):
 
 
       
+ 
+      def __unicode__(self):
+             return self.email
+
+'''
+describing the customer class
+inside the customer class we have an email,mobile number ,date of birth ,customer's company name and then their postal address.
+the email field should be unique in our database and must have  a maximum length of 254 
+the mobile number and the companyname are also unique(database)
+
+
+
+when we refer to the customer class in our views we have email as our initials
+
+
+ 
+'''
+
+class Contact(models.Model):
+
+      groupname=models.CharField(max_length=100)
+
+
+
+      customer=models.ForeignKey(Customer,related_name='contacts')
+      
+      
+      def viewcontact():
+          pass
+      def updatecontact():
+          pass
+      def deletecontact():
+          pass
+      def saveContact():
+          pass
+
+
+
+     
 
       def __unicode__(self):
-             return self.companyname
+           return self.groupname
+
+'''
+the contact refers to all contacts under a particular customer.
+there is a one to many relationship between the customer and the contact class 
+that is why we have the foreignkey at the contact class
+
+
+when we refer to the contact class in our views we have groupname as our initials 
+'''
 
 
 
+
+
+class Group(models.Model):
+      groupname=models.CharField(max_length=30)
+
+      datecreated=models.DateField(auto_now=True)
+      dateupdated=models.DateField(auto_now=True)
+      customer=models.ForeignKey(Customer,related_name='groups')
+
+      contact=models.ForeignKey(Contacts,related_name='groups')
+     
+
+      def __unicode__(self):
+             return self.groupname
+
+'''
+the class group is very important because it provides a group name for each contacts
+so we have attribute like datecreated , dateupdated
+
+
+we also have a customer attribute that is related to the customer class
+NB  that it has a related name group with respect to the class Customer
+
+
+
+the contact attribute also relate the class Contacts with the class Group
+So  a contact may have many groups.(many to one relationship)
+
+'''
 
 
 class Message(models.Model):
@@ -71,6 +156,15 @@ class Message(models.Model):
       def __unicode__(self):
              return self.subject
 
+'''
+in the message class we have the subject, sender and one who receives the message
+the customer attribute only depict an individual (customer ) with a lot of messages 
+
+
+the functions will be explained later
+
+when we refer to the Message  class in our views we have subject as our initials 
+'''
 
 
 
@@ -78,25 +172,7 @@ class Message(models.Model):
 
 
 
-class Contact(models.Model):
-
-      groupname=models.CharField(max_length=100)
-
-
-
-      customer=models.ForeignKey(Customer,related_name='contacts')
-      
-      def viewcontact():
-          pass
-      def updatecontact():
-          pass
-      def deletecontact():
-          pass
-      def saveContact():
-          pass
-
-      def __unicode__(self):
-           return self.groupname
+     
 
 
 
@@ -112,7 +188,21 @@ class Servicelog(models.Model):
       def __unicode__(self):
              return self.smsstatus
 
+'''
+this class only has  and smsstatus attribute
+this will depict the status of the sms sent to the gateway
 
+
+functions will be explained later
+
+when we refer to the servicelog class in our views we have smsstatus as our initials 
+'''
+
+
+
+'''
+registering all our classes 
+'''
 admin.site.register(Servicelog)
 
 admin.site.register(Message)
