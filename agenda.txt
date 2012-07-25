@@ -1,0 +1,14 @@
+Things done today, 25-07-12:
+Create account view
+Create base_account template.
+Home page design
+discussion
+Home page design 
+Installed SMS sdk
+
+things to do tomorrow:
+Home page design implementation
+
+Create base_verification, base_sms template.
+
+Implement bulk sms service
