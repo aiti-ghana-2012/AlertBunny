@@ -43,7 +43,7 @@ class LoginForm(forms.Form):
 
 
 # Login view - Nana B.
-
+#tested code and it works logs in perfectly
 @csrf_exempt
 def do_login(request):
 	

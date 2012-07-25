@@ -61,7 +61,7 @@ def do_login(request):
 		if user is not None:
 			if user.is_active:
 				login(request, user)
-				request.session["uname_sess"] = uname
+				#request.session["uname_sess"] = uname
 				return HttpResponseRedirect(request.path)
 			
 			##redirect
