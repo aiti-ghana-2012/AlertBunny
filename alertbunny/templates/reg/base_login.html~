@@ -1,6 +1,6 @@
 {% extends "bulk/base.html" %}
 {%block title%}
-<title>Home</title>
+<title>Welcome To AlertBunny!</title>
 {%endblock title%}
 {% block content %}
 	<form action="." method="post">

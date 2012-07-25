@@ -1,13 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings	
+  
+
 admin.autodiscover()
 
 
 
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,4 +18,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^reg/',include('reg.urls')),
+    url(r'^bulk/',include('bulk.urls')),
+   
+    #url(r'^$', direct_to_template,{ 'template': 'index.html' }, 'index'),
+    url(r'^accounts/',include('reg.urls')),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.STATIC_ROOT,}),
 )
