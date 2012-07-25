@@ -33,13 +33,16 @@ so the contact class has two FK fields
 
 
 class Customer(models.Model):
-      fistname = models.CharField(max_length=30)
+      name = models.CharField(max_length=30)
 
-      lastname = models.CharField(max_length=30)
+      #lastname = models.CharField(max_length=30)
 
       email = models.EmailField(max_length=254,unique=True)
 
       mobilenumber=models.PositiveIntegerField(blank=True,unique=True)
+      
+      datecreated=models.DateTimeField(auto_now_add=True)
+      dateupdated=models.DateTimeField(auto_now=True)
 
       dateofbirth=models.DateField()
 
@@ -73,7 +76,10 @@ class Contact(models.Model):
 
       groupname=models.CharField(max_length=100)
 
-
+      group=models.ForeignKey('Group',related_name='contacts')
+      
+      datecreated=models.DateTimeField(auto_now_add=True)
+      dateupdated=models.DateTimeField(auto_now=True)
 
       customer=models.ForeignKey(Customer,related_name='contacts')
       
@@ -110,11 +116,11 @@ when we refer to the contact class in our views we have groupname as our initial
 class Group(models.Model):
       groupname=models.CharField(max_length=30)
 
-      datecreated=models.DateField(auto_now=True)
-      dateupdated=models.DateField(auto_now=True)
+      datecreated=models.DateTimeField(auto_now_add=True)
+      dateupdated=models.DateTimeField(auto_now=True)
       customer=models.ForeignKey(Customer,related_name='groups')
 
-      contact=models.ForeignKey(Contacts,related_name='groups')
+      contact=models.ForeignKey(Contact,related_name='groups')
      
 
       def __unicode__(self):
@@ -206,15 +212,34 @@ when we refer to the servicelog class in our views we have smsstatus as our init
 '''
 registering all our classes 
 '''
-admin.site.register(Servicelog)
+'''
+creating inlines
+'''
+class ContactInline(admin.TabularInline):     
+      model=Contact
+class GroupInline(admin.TabularInline):     
+      model=Group
+
+
+'''
+extending admin
+
+'''
+
+class CustomerAdmin(admin.ModelAdmin):
+      list_display=('name','email','mobilenumber')
+      search_fields=('name','email','mobilenumber','companyname')
+      list_filter=('datecreated','dateupdated')
+      inlines=[GroupInline]
+      inlines=[ContactInline]
+      ordering=('-datecreated',)
 
 admin.site.register(Message)
 
-admin.site.register(Contact)
 
-admin.site.register(Person)
 
-admin.site.register(Customer)
+
+admin.site.register(Customer,CustomerAdmin)
 
 
 
