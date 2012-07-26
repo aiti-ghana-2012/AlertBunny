@@ -20,7 +20,7 @@ class SMSForm(forms.Form):
     message = forms.TextField()
     receiver=forms.TextField()
 
-def sample_send_sms():
+def sample_send_sms(re):
     message_to_send = SMS(to_number='louia', from_number='djNGO', body='fuck you')
     message_to_send.send()
     return HttpResponse('/bulk')

@@ -21,6 +21,11 @@ dj_database_url.config(default="sqlite:/blog_dev.db")
 }
 
 
+SMS_HANDLERS = (
+        'dj_simple_sms.sample_sms_handler',
+    )
+
+
 TIME_ZONE ='Africa/Accra'
 
 # Local time zone for this installation. Choices can be found here:
@@ -119,11 +124,9 @@ TEMPLATE_DIRS = (
 
 
 
-
-ACCOUNT_ACTIVATION_DAYS = 2
-
-
 INSTALLED_APPS = (
+    'django_cron',
+    'dj_simple_sms',
     'south',
     'bulk',
     'django.contrib.admin',

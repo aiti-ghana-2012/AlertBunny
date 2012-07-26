@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'AlertBunny site admin' %}{% endblock %}
+{% block extrastyle %}
+<style>
+#header{ background-color: #FFA500;}
+ 
+#branding h1{ color: black; }
+</style>
+
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'AlertBunny administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

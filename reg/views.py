@@ -2,14 +2,16 @@
 
 
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirect
-#from django import forms 0.95 style
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
 
 
-from django import  forms #need this for the registration ...it simply the same
+from django import  forms 
 from django.contrib.auth.forms import User
+from dj_simple_sms.models import SMS
+
+
 
 
 '''

@@ -21,6 +21,11 @@ dj_database_url.config(default="sqlite:/blog_dev.db")
 }
 
 
+SMS_HANDLERS = (
+        'dj_simple_sms.sample_sms_handler',
+    )
+
+
 TIME_ZONE ='Africa/Accra'
 
 # Local time zone for this installation. Choices can be found here:
@@ -73,6 +78,8 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(SITE_ROOT, 'assets'),
+
 )
 
 # List of finder classes that know how to find static files in
@@ -117,11 +124,9 @@ TEMPLATE_DIRS = (
 
 
 
-
-ACCOUNT_ACTIVATION_DAYS = 2
-
-
 INSTALLED_APPS = (
+    'django-cron',
+    'dj_simple_sms',
     'south',
     'bulk',
     'django.contrib.admin',
