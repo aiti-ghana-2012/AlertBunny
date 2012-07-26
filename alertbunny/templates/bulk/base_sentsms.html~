@@ -1,0 +1,17 @@
+{% extends "bulk/base.html" %}
+
+
+{%block title%}
+<title>register</title>
+{%endblock title%}
+{% block content %}
+
+<h1>MESSAGE SENT </h1>
+
+
+
+{% endblock %}
+
+
+			
+

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib import admin
+import datetime
 
 # Create your models here.
 '''
@@ -56,7 +57,7 @@ class Customer(models.Model):
       
  
       def __unicode__(self):
-             return self.email
+             return self.name
 
 '''
 describing the customer class
@@ -81,7 +82,7 @@ class Contact(models.Model):
       datecreated=models.DateTimeField(auto_now_add=True)
       dateupdated=models.DateTimeField(auto_now=True)
 
-      customer=models.ForeignKey(Customer,related_name='contacts')
+      customer=models.ForeignKey(Customer,related_name='contacts' ,default='')
       
       
       def viewcontact():
@@ -148,10 +149,11 @@ class Message(models.Model):
       sender=models.CharField(max_length=30)
 
       receiver=models.CharField(max_length=30)
+      body=models.TextField()
 
-      scheduledate=models.DateField()
+      scheduledate=models.DateField(default=datetime.datetime.today())
 
-      customer=models.ForeignKey(Customer,related_name='messages')
+     
 
       def sendSms():
           pass

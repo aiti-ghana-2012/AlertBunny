@@ -1,23 +1,34 @@
+<!DOCTYPE html>
 <html>
 	<head>
        
         {% block title %}
-        
-		<title>Welcome To AlertBunny!</title>
+        	<title>Welcome To AlertBunny!</title>
         {% endblock title %}
         <!--The above will make sure we are able to overwrite and get unique titles for every page -->
 		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
 	</head>
-	<body>
-	
-		<div id=content>
+
 		
-			{% block content %}
+	<body>
+		<div style="" class="">
 			
-			{% endblock %}
+			<!--header-->
+			<div style="" class="">
+				
+				<!--login-->
+				<div style="" class="">
+				</div>
 			
-		</div><!-- end of div content --> 
+			</div>
+			
+		
 	
+		{% block content %}
+			
+		{% endblock %}
+		</div>
+			
 	</body>
 	
 </html>
