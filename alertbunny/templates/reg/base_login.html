@@ -3,11 +3,73 @@
 <title>Home</title>
 {%endblock title%}
 {% block content %}
-	<div style="margin-left:;">
-	<form class="form-inline" action="." method="post">
-		{{ form.as_p }}
-     	<input type="submit" value="Submit" value="Login!" />
-  	</form>
+
+<style>
+  .hr { height:0; width:1000px;  border-top:3px solid orange; margin-left:170px; }
+  .hr hr { display:none }
+</style>
+
+	
+<!--logo and loginform-->	
+	<div>	
+		<!--logo--><div  style="float:left;margin-left:200px; background-color:; width:150px; height:100px;">
+				<img src="/static/img/logo.png"/>
+				</div>
+		
+		<!--login form--><form  class="form-inline" action="." method="post">
+			{{ form.as_table }}
+	     		<input class="btn btn-warning" type="submit" value="Log In" />
+			<br/>
+			<b style="margin-left:300px;">Forgot password?</b>
+			
+	  	</form>
+		
+		
+	</div>
+
+	
+
+<!--top orange line-->	
+	<div style="margin-top:50px;" class=hr><hr/></div>
+<!--bunny top menu list-->
+	 <div class="bunnymenu" style="position:relative; margin-left:300px;">
+     		<ul>
+     		 <li><a href="#">HOME</a></li>
+     		 <li><a href="#">Features</a></li>
+		 <li><a href="#">FAQs</a></li>
+		 <li><a href="#">Buy Credits</a></li>
+		 <li><a href="#">Contact Us</a></li>
+     		</ul>
+     	</div>
+
+<!--picture slide show-->
+	
+	<div style="width:650px; border:1px solid orange;height:300px; background-color:; margin-left:200px; margin-top:45px;"></div>
+		<div style="width:260px; height:300px; border:;background-color:; margin-left:910px; margin-top:-300px;">
+		<form class="">
+			<fieldset>
+			<legend><b style="">Don't have an account?</b></legend>
+  			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Enter Name">
+			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="         	    Email">
+			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Password">
+
+			
+		  	<button class="btn btn-warning btn-large" type="submit" value="" >Create Account</button>
+			</fieldset>
+		</form>
+
+	</div>		
+	
+	<div style="margin-top:30px;margin-bottom:0px;" class=hr><hr/></div>
+	
+ 	<div style="width:200px; border:; height:100px; background-color:; margin-left:200px; margin-top:45px;">
+	<img  src="/static/img/tab 2.png" />
+	</div>
+	<div style="width:200px; border:; height:100px; background-color:; margin-left:500px; margin-top:-110px;">
+	<img src="/static/img/tab1.png"/>
+	</div>
+	<div style="width:200px; border:; height:100px; background-color:; margin-left:800px; margin-top:-110px;">
+	<img src="/static/img/tab 3.png"/>
 	</div>
 {% endblock %}
 			

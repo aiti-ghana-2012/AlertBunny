@@ -12,7 +12,7 @@ from django.contrib.auth.forms import User
 from dj_simple_sms.models import SMS
 
 
-
+how to increase the thickness of hr element in html
 
 '''
 #Handling registration  obeng william 

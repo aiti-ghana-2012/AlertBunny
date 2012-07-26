@@ -4994,10 +4994,11 @@ a.badge:hover {
   visibility: hidden;
 }
 
-
+.logo{
+background-image:url("../img/logo.png");
+}
 /*******************************************/
 bunnymenu
-
 /*******************************************/
 
 .bunnymenu{
