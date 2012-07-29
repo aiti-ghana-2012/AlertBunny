@@ -23,7 +23,7 @@ beginning sms
 class SMSform(ModelForm):
       class Meta:
               model=Message
-              exclude=['scheduledate','sent']
+              exclude=['scheduledate','sent','customer']
 
 @csrf_exempt         
 def send_scheduled_sms(request):
@@ -60,8 +60,12 @@ def send_sms(request):
             return  render_to_response('bulk/base_sentsms.html',{'form':form})
     else:
         form=SMSform()
-        print 2
     return  render_to_response('bulk/base_sendsms.html',{'form':form})
+
+
+def schedule(request):
+    return  render_to_response('bulk/base_schedulesms.html')
+    
 
 
 

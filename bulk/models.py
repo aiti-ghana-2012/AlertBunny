@@ -142,13 +142,9 @@ class Message(models.Model):
 
       scheduledate=models.DateField(auto_now_add=True)
       sent=models.BooleanField(default=False)
+      customer=models.ForeignKey(Customer,related_name='messages')
 
      
-
-      def sendSms():
-          pass
-
-
       def createmessagelog():
           pass
       def usetemplate():

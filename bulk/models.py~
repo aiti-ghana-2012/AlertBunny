@@ -141,14 +141,10 @@ class Message(models.Model):
       body=models.TextField()
 
       scheduledate=models.DateField(auto_now_add=True)
-      sent=BooleanField(default=False)
+      sent=models.BooleanField(default=False)
+      customer=models.ForeignKey(Customer,related_name='groups')
 
      
-
-      def sendSms():
-          pass
-
-
       def createmessagelog():
           pass
       def usetemplate():
