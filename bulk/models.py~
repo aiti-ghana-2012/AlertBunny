@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib import admin
-import datetime
+from datetime import datetime
 
 # Create your models here.
 '''
@@ -19,19 +19,7 @@ it should have a FK field that links to Customer
 and in the Contact class it should have
 a FK field to Group class and Customer
 so the contact class has two FK fields  
-
-/*************************************/
-<<<<<<< HEAD
-
-=======
->>>>>>> 64ca3bdec004c48b3ac61be6176fbd824fc460c8
 '''
-
-
-
-
-
-
 
 class Customer(models.Model):
       name = models.CharField(max_length=30)
@@ -69,15 +57,16 @@ the mobile number and the companyname are also unique(database)
 
 when we refer to the customer class in our views we have email as our initials
 
-
+u
  
 '''
 
 class Contact(models.Model):
 
-      groupname=models.CharField(max_length=100)
+      contactname=models.CharField(max_length=100,blank=True,null=True)
+      contactnumber=models.PositiveIntegerField(blank=False,unique=True)
 
-      group=models.ForeignKey('Group',related_name='contacts')
+      group=models.ForeignKey('Group',related_name='contacts',blank=True,null=True)
       
       datecreated=models.DateTimeField(auto_now_add=True)
       dateupdated=models.DateTimeField(auto_now=True)
@@ -121,7 +110,7 @@ class Group(models.Model):
       dateupdated=models.DateTimeField(auto_now=True)
       customer=models.ForeignKey(Customer,related_name='groups')
 
-      contact=models.ForeignKey(Contact,related_name='groups')
+      contact=models.ForeignKey(Contact,related_name='groups',blank=True,null=True)
      
 
       def __unicode__(self):
@@ -148,10 +137,11 @@ class Message(models.Model):
 
       sender=models.CharField(max_length=30)
 
-      receiver=models.CharField(max_length=30)
+      receiver=models.CharField(max_length=1000)
       body=models.TextField()
 
-      scheduledate=models.DateField(default=datetime.datetime.today())
+      scheduledate=models.DateField(auto_now_add=True)
+      sent=BooleanField(default=False)
 
      
 
@@ -165,7 +155,7 @@ class Message(models.Model):
           pass
 
       def __unicode__(self):
-             return self.subject
+             return str(self.receiver)
 
 '''
 in the message class we have the subject, sender and one who receives the message
@@ -230,6 +220,8 @@ extending admin
 
 class CustomerAdmin(admin.ModelAdmin):
       list_display=('name','email','mobilenumber')
+
+
       search_fields=('name','email','mobilenumber','companyname')
       list_filter=('datecreated','dateupdated')
       inlines=[GroupInline]
@@ -238,7 +230,8 @@ class CustomerAdmin(admin.ModelAdmin):
 
 admin.site.register(Message)
 
-
+admin.site.register(Group)
+admin.site.register(Contact)
 
 
 admin.site.register(Customer,CustomerAdmin)

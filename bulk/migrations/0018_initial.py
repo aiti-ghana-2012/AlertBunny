@@ -26,11 +26,11 @@ class Migration(SchemaMigration):
         # Adding model 'Contact'
         db.create_table('bulk_contact', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('groupname', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('Contactname', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('group', self.gf('django.db.models.fields.related.ForeignKey')(related_name='contacts', to=orm['bulk.Group'])),
             ('datecreated', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('dateupdated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('customer', self.gf('django.db.models.fields.related.ForeignKey')(related_name='contacts', to=orm['bulk.Customer'])),
+            ('customer', self.gf('django.db.models.fields.related.ForeignKey')(default='', related_name='contacts', to=orm['bulk.Customer'])),
         ))
         db.send_create_signal('bulk', ['Contact'])
 
@@ -51,8 +51,8 @@ class Migration(SchemaMigration):
             ('subject', self.gf('django.db.models.fields.CharField')(max_length=30)),
             ('sender', self.gf('django.db.models.fields.CharField')(max_length=30)),
             ('receiver', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('scheduledate', self.gf('django.db.models.fields.DateField')()),
-            ('customer', self.gf('django.db.models.fields.related.ForeignKey')(related_name='messages', to=orm['bulk.Customer'])),
+            ('body', self.gf('django.db.models.fields.TextField')()),
+            ('scheduledate', self.gf('django.db.models.fields.DateField')(default=datetime.datetime(2012, 7, 27, 0, 0))),
         ))
         db.send_create_signal('bulk', ['Message'])
 
@@ -83,12 +83,12 @@ class Migration(SchemaMigration):
 
     models = {
         'bulk.contact': {
+            'Contactname': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'Meta': {'object_name': 'Contact'},
-            'customer': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'contacts'", 'to': "orm['bulk.Customer']"}),
+            'customer': ('django.db.models.fields.related.ForeignKey', [], {'default': "''", 'related_name': "'contacts'", 'to': "orm['bulk.Customer']"}),
             'datecreated': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'dateupdated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'group': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'contacts'", 'to': "orm['bulk.Group']"}),
-            'groupname': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
         'bulk.customer': {
@@ -115,10 +115,10 @@ class Migration(SchemaMigration):
         },
         'bulk.message': {
             'Meta': {'object_name': 'Message'},
-            'customer': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'messages'", 'to': "orm['bulk.Customer']"}),
+            'body': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'receiver': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'scheduledate': ('django.db.models.fields.DateField', [], {}),
+            'scheduledate': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2012, 7, 27, 0, 0)'}),
             'sender': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
             'subject': ('django.db.models.fields.CharField', [], {'max_length': '30'})
         },

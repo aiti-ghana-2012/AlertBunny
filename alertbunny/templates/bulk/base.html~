@@ -1,5 +1,9 @@
+<!DOCTYPE html>  
+<html lang="en">
+
 <!DOCTYPE html>
 <html>
+
 	<head>
        
         {% block title %}
@@ -10,24 +14,16 @@
 	</head>
 
 		
-	<body>
-		<div style="" class="">
-			
-			<!--header-->
-			<div style="" class="">
-				
-				<!--login-->
-				<div style="" class="">
-				</div>
-			
-			</div>
-			
 		
-	
+	<body>
+		
+		
 		{% block content %}
 			
+			
+
 		{% endblock %}
-		</div>
+		
 			
 	</body>
 	

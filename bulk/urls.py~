@@ -1,4 +1,4 @@
-#import bulk.views
+import bulk.views
 
 from django.conf.urls.defaults import *
 

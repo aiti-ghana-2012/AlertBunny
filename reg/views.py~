@@ -11,13 +11,7 @@ from django import  forms
 from django.contrib.auth.forms import User
 from dj_simple_sms.models import SMS
 
-'''
-beginning sms
-'''
-def sample_send_sms(re):
-    message_to_send = SMS(to_number='louia', from_number='djNGO', body='HEWLLOEJLDSFJLSK')
-    message_to_send.send()
-    return HttpResponse('/bulk')
+
 
 '''
 #Handling registration  obeng william 
