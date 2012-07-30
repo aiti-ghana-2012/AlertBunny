@@ -40,10 +40,14 @@ def send_scheduled_sms(request):
 
   
 @csrf_exempt
+
+
+
 def send_sms(request):
+    if request.user.username == '':
+	return HttpResponseRedirect('/reg/login')
 
     if request.method =='POST':
-        
         form=SMSform(request.POST)
         if form.is_valid():
             form.save()
@@ -61,8 +65,7 @@ def send_sms(request):
             return  render_to_response('bulk/base_sentsms.html',{'form':form})
     else:
         form=SMSform()
-        context=Context({'form':form,'user':request.user})
-        return  render_to_response('bulk/base_sendsms.html',context)
+        return  render_to_response('bulk/base_sendsms.html',{'form':form,'user':request.user})
 
 
 '''
@@ -130,7 +133,7 @@ def editmessage(request,id):
             context=Context({'form':form,'user':request.user})
             return HttpResponseRedirect('/bulk/sendsms')
     else:
-        form=SMSform(instance=customers)
+        form=SMSform(instance=message)
         context=Context({'form':form,'user':request.user})
     return  render_to_response('bulk/base_messageedit.html',context)
 
@@ -141,7 +144,3 @@ def editmessage(request,id):
 def schedule(request):
     return  render_to_response('bulk/base_schedulesms.html')
     
-
-
-
-

@@ -11,6 +11,10 @@ from django import  forms
 from django.contrib.auth.forms import User
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> df5cdf75761b66adfe380946fd469d2b50152d57
 
 '''
 #Handling registration  obeng william 
@@ -53,17 +57,19 @@ def register(request):
 
 
 '''
+#Added placeholder attribute to username and password field 
+# @Nana B.
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '    username'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': '    password'}))
 
 
-# Login view - Nana B.
+# Login view - @Nana B.
 #tested code and it works logs in perfectly
 @csrf_exempt
 def do_login(request):
-	
+	empty_cred = '' #empty login credential variable
 	disabled_accMsg = ''
 	invalidMsg = ''
 	sess_data = ''
@@ -74,24 +80,27 @@ def do_login(request):
 	if request.method == 'POST':
    	        uname = request.POST['username']	
 		pword = request.POST['password']
-		user = authenticate(username=uname, password=pword)
-		if user is not None:
-			if user.is_active:
-				login(request, user)
-				#request.session["uname_sess"] = uname
-				return HttpResponseRedirect(request.path)
-			
-			##redirect
-			else:
-				disabled_accMsg = "Sorry, your account has been disabled. Contact the administrator."
-				
-			##return a disabled account msg
+		if uname == '' or pword == '':
+			empty_cred = 'Username or password field cannot be empty!'
 		else:
-			invalidMsg = "Username or Password is invalid!"
+			user = authenticate(username=uname, password=pword)
+			if user is not None:
+				if user.is_active:
+					login(request, user)
+					#request.session["uname_sess"] = uname
+					return HttpResponseRedirect('/bulk/bulksms')
 			
-		#return an invalid login message
+				##redirect
+				else:
+					disabled_accMsg = "Sorry, your account has been disabled. Contact the administrator."
+				
+				##return a disabled account msg
+			else:
+				invalidMsg = "Username or Password is invalid!"
+			
+			#return an invalid login message
 	
-	#YOUR CODE HERE
+		#YOUR CODE HERE
 	else:
         	form = LoginForm()
 	form = LoginForm()
@@ -100,18 +109,21 @@ def do_login(request):
         'logged_in': request.user.is_authenticated(),
 	'disabled_accMsg': disabled_accMsg,
 	'invalidMsg': invalidMsg,
+	'empty_cred':empty_cred,
 	'already_logged_in': already_logged_in,
 	'user': request.user
     })
 
 
-# Login view - Nana B.
+# Logout view - Nana B.
 
 @csrf_exempt
 def do_logout(request):
 	if request.user.username != '':
 		logout(request)
 		request.user.username = ''
-		return render_to_response('reg/base_logout.html',{'user': request.user})
+		return HttpResponseRedirect('/reg/login')
+		
 	else:
-		return HttpResponseRedirect(request.path)
+		return HttpResponseRedirect('/reg/login')
+	return render_to_response('reg/base_logout.html',{'user': request.user})

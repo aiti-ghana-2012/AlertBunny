@@ -1,6 +1,7 @@
 <!DOCTYPE html>  
 <html lang="en">
 
+
 	<head>
        
         {% block title %}
@@ -8,20 +9,134 @@
         {% endblock title %}
         <!--The above will make sure we are able to overwrite and get unique titles for every page -->
 		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+
+
 	</head>
 
+	<style>
+  		.hr { height:0; width:1000px;  border-top:3px solid orange; margin-left:170px; }
+  		.hr hr { display:none }
+	</style>
 		
 		
-	<body>
+	<body bgproperties="fixed">
+		<div>	
+
+
+
+		
+		<!--logo-->     
+
+				
+					{% ifnotequal user.username ''%}
+						<div  style="float:left;margin-left:200px; background-color:; width:150px; height:100px;margin-top:-100px;">
+				     	<img src="/static/img/logo.png"/>
+						</div>
+					
+						<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
+						Welcome &nbsp <i class="icon-user"></i> &nbsp {{user.username}} &nbsp <a href="/reg/logout">LOGOUT</a>
+						</div>
+						<!--top orange line--><div style="margin-top:100px;" class=hr><hr/></div>
+
+
+					{% else %}
+						<div style="float:left;margin-left:200px; background-color:; width:150px; height:100px;margin-top:-10px;">
+				     	<img src="/static/img/logo.png"/>
+						</div>
+
+<!--login form-->	
+						<form  class="form-inline" action="." method="post">
+					
+						{{ form.as_table }}
+	     				<button class="btn btn-warning" type="submit" value="LogIn" ><b>Log In</b></button>
+						<br/>
+						<a href="#"><b style="margin-left:300px;">Forgot password?</b></a>
+			
+	  					</form>
+					
+						
+<!--top orange line-->	
+
+						<div style="margin-top:40px;" class=hr><hr/></div>
+					{% endifnotequal %}
+
+
+	
+<!--bunny top menu list-->
+	 <div class="bunnymenu" style="margin-left:200px;">
+     		<ul>
+     		 	<li><a href="#">Home</a></li>
+     		 	<li><a id='example' rel="popover" title="Who we are..." data-content="Click to see who we are" href="#">About Us</a></li>
+     		 	<li><a href="#">Features</a></li>
+		 	 	<li><a href="#">Buy Credits</a></li>
+		 	 	<li><a href="#">FAQs</a></li>
+		    	<li><a href="#">Contact Us</a></li>
+     		 </ul>
+	     		 
+     		 
+     		 
+     	</div>
+			
 		
 		
 		{% block content %}
 			
-			
-
+             
 		{% endblock %}
 		
-			
-	</body>
+		
+		<!--orange line below--><div style="margin-top:5px;margin-bottom:0px;text-align:right;" class=hr><hr/></div>
+        <div style="margin-left:80px;margin-top:-20px;">
+        	 <img  src="/static/img/tab1.png" width="400" height="230"/>
+        		<div style="position:absolute;margin-top:-120px;width:190px;border:;margin-left:125px;">
+        		<strong style="text-align:justify;color:white; font-size:35px;"> Register </strong>
+        		</div>
+		    <img  src="/static/img/tab2.png" width="400" height="230"/>
+		  		<div style="position:absolute;margin-top:-120px;width:190px;border:;margin-left:527px;">
+		  		<strong style="text-align:justify;color:white; font-size:35px;"> LOGIN </strong>
+		  		</div>
+		    <img  src="/static/img/tab3.png" width="400" height="240"/>
+		  		<div style="position:absolute;margin-top:-120px;width:190px; height:50px;border:;margin-left:930px;">
+		  		<strong style="text-align:justify;color:white; font-size:35px;"> Create and Send SMS </strong>
+	     </div>
 	
+ 	<div style="margin-top:-20px;margin-bottom:0px; width:1000px;margin-left:95px;text-align:right;" >
+ 	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
+ 	</div>		
+		
+				
+		
+		
+
+	 <script src="/static/bootstrap/js/jquery.js"></script>	
+	 <script src="/static/bootstrap/js/bootstrap.js"></script>
+	 <script src="/static/bootstrap/js/bootstrap-transition.js"></script>
+	<script src="/static/bootstrap/js/bootstrap-carousel.js"></script>
+	<script type="text/javascript">
+ 		 $(function(){
+     	 $('#myCarousel').carousel({interval:5000});
+ 	 })
+ 	 </script>		
+  
+	<script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+		<script type="text/javascript">
+ 		 $(function(){
+     	 $(".alert").alert();
+ 	 })
+ 	 </script>
+ 	 
+ 	 <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('#myModal').modal('show');
+ 	 	})	
+ 	 	</script>
+ 	 	
+ 	 	 <script src="/static/bootstrap/js/bootstrap-popover.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('#example').popover({placement:'bottom'});
+ 	 	})	
+ 	 	</script>
+	</body>
 </html>

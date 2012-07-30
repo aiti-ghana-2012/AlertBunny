@@ -3,12 +3,29 @@
 <title>Home</title>
 {%endblock title%}
 {% block content %}
+{% ifnotequal already_logged_in '' %}
+	<div class="alert alert-info fade in" style="float:right;width:700px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
+	<a class="close" data-dismiss="alert" href="#my-alert">&times;</a>
+	<h4 class="alert-heading">Notice</h4>
+	{{ already_logged_in }}
+	</div>
+{% endifnotequal %}
 
-<style>
-  .hr { height:0; width:1000px;  border-top:3px solid orange; margin-left:170px; }
-  .hr hr { display:none }
-</style>
+{% ifnotequal empty_cred '' %}
+	<div class="alert alert-error fade in" style="float:right;width:800px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
+	<a class="close" data-dismiss="alert" href="#my-alert">&times;</a>
+	<h4 class="alert-heading">Login Failure!</h4>
+	<p style="text-align:justify;">{{ empty_cred }}</p>
+	</div>
+{% endifnotequal %}
 
+
+
+{% ifnotequal invalidMsg '' %}
+	<div class="alert alert-error fade in" style="float:right;width:700px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
+	<a class="close" data-dismiss="alert" href="#my-alert">&times;</a>
+	<h4 class="alert-heading">Login Failure!</h4>
+	{{ invalidMsg }}
 	
 <!--logo and loginform-->
 <div style="background-color:white:">	
@@ -24,45 +41,76 @@
 			<b style="margin-left:300px;">Forgot password?</b>
 			
 	  	</form>
-		
-		
 	</div>
+{% endifnotequal %}
+
+{% ifnotequal disabled_accMsg ''%}
+	<div class="alert alert-error" style="float:right;width:700px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
+	<h4 class="alert-heading">Notice!!</h4>
+	<p style="text-align:justify;">{{ disabled_accMsg }}</p>
+{% endifnotequal %}
+
+
+	
+<!--logo and loginform-->	
+	
 
 	
 
-<!--top orange line-->	
-	<div style="margin-top:50px;" class=hr><hr/></div>
-<!--bunny top menu list-->
-	 <div class="bunnymenu" style="position:relative; margin-left:300px;">
-     		<ul>
-     		 <li><a href="#">HOME</a></li>
-     		 <li><a href="#">Features</a></li>
-		 <li><a href="#">FAQs</a></li>
-		 <li><a href="#">Buy Credits</a></li>
-		 <li><a href="#">Contact Us</a></li>
-     		</ul>
-     	</div>
-
-<!--picture slide show-->
-	
-	<div style="width:650px; border:1px solid orange;height:300px; background-color:; margin-left:200px; margin-top:45px;"></div>
-		<div style="width:260px; height:300px; border:;background-color:; margin-left:910px; margin-top:-300px;">
+<!--create account--><div style="position:static;width:260px; height:300px; border:;background-color:; margin-left:200px; margin-top:10px;">
 		<form class="">
 			<fieldset>
 			<legend><b style="">Don't have an account?</b></legend>
   			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Enter Name">
 			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="         	    Email">
-			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Password">
+			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Password">		
+			
 
 			
-		  	<button class="btn btn-warning btn-large" type="submit" value="" >Create Account</button>
+		  	<button class="btn btn-warning btn-large" type="submit" value="" ><b>Create Account</b></button>
 			</fieldset>
 		</form>
 
 	</div>		
 	
-	<div style="margin-top:30px;margin-bottom:0px;" class=hr><hr/></div>
+
+<!--picture slide show-->
+
+
+
+<div id="myCarousel" class="carousel slide" style="position:;width:650px; height:373px; border:1px solid orange; background-color:; margin-left:500px; margin-top:-300px;">
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="/static/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>First Thumbnail label</h4>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+              </div>
+              <div class="item">
+                <img src="/static/img/bootstrap-mdo-sfmoma-02.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>Second Thumbnail label</h4>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+              </div>
+              <div class="item">
+                <img src="/static/img/bootstrap-mdo-sfmoma-03.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>Third Thumbnail label</h4>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+              </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+
+
+
 	
+
+
  	<div style="width:200px; border:; height:100px; background-color:; margin-left:200px; margin-top:45px;">
 	<img  src="/static/img/tab 2.png" />
 	</div>
