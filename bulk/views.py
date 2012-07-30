@@ -27,6 +27,8 @@ class SMSform(ModelForm):
     
 @csrf_exempt
 def sample_send_sms(request):
+    if request.user.username == '':
+	return HttpResponseRedirect('/reg/login')	
     if request.method =='POST':
         form=SMSform(request.POST)
         if form.is_valid():
@@ -42,4 +44,4 @@ def sample_send_sms(request):
     else:
         form=SMSform()
         print 2
-    return  render_to_response('bulk/base_sendsms.html',{'form':form})
+    return  render_to_response('bulk/base_sendsms.html',{'form':form,'user':request.user})
