@@ -10,12 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django import  forms 
 from django.contrib.auth.forms import User
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> df5cdf75761b66adfe380946fd469d2b50152d57
-
 '''
 #Handling registration  obeng william 
 class Registration(form.Form):
@@ -88,7 +82,7 @@ def do_login(request):
 				if user.is_active:
 					login(request, user)
 					#request.session["uname_sess"] = uname
-					return HttpResponseRedirect('/bulk/bulksms')
+					return HttpResponseRedirect('/bulk/sendsms')
 			
 				##redirect
 				else:
@@ -103,7 +97,6 @@ def do_login(request):
 		#YOUR CODE HERE
 	else:
         	form = LoginForm()
-	form = LoginForm()
 	return render_to_response('reg/base_login.html', {
         'form': form,
         'logged_in': request.user.is_authenticated(),

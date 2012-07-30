@@ -27,10 +27,9 @@ class SMSform(ModelForm):
               exclude=['scheduledate','sent','customer']
 
 @csrf_exempt         
-def send_scheduled_sms(request):
-    message = Message.objects.filter(scheduledate__gte=date.today())
+def schedule_sms(request):
+    message = Message.objects.filter(scheduledate__gte=date.today(),sent=False) #.filter(sent__exact=False)
     for datetoschedule in message:
-        if datetoschedule.sent==False:
            message_to_send = SMS(to_number=datetoschedule.receiver, from_number=datetoschedule.sender, body=datetoschedule.body)
            message_to_send.send()
            datetoschedule.sent=True
@@ -38,11 +37,14 @@ def send_scheduled_sms(request):
     
     return  HttpResponse(str(message))
 
-  
+
+
+
+
+
+
+
 @csrf_exempt
-
-
-
 def send_sms(request):
     if request.user.username == '':
 	return HttpResponseRedirect('/reg/login')
@@ -66,6 +68,7 @@ def send_sms(request):
     else:
         form=SMSform()
         return  render_to_response('bulk/base_sendsms.html',{'form':form,'user':request.user})
+
 
 
 '''
