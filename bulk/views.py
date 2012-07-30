@@ -53,6 +53,7 @@ def send_sms(request):
         form=SMSform(request.POST)
         if form.is_valid():
             form.save()
+            '''
             message=form.cleaned_data['body']
             receiver=form.cleaned_data['receiver']
             sender=form.cleaned_data['sender']
@@ -64,7 +65,9 @@ def send_sms(request):
                sender=form.cleaned_data['sender']
                message_to_send = SMS(to_number=receivers, from_number=sender, body=message)
                message_to_send.send()
+'''
             return  render_to_response('bulk/base_sentsms.html',{'form':form})
+          
     else:
         form=SMSform()
         return  render_to_response('bulk/base_sendsms.html',{'form':form,'user':request.user})
@@ -90,7 +93,8 @@ class optoutform(ModelForm):
       
 
 def optout(request):
-    message=Message.objects.all()
+    message=Message.objects.filter(scheduledate__gte=date.today(),sent=False)
+    print message
     form=optoutform()
     
     context=Context({'message':message,'user':request.user,'form':form})
