@@ -9,10 +9,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 from django import  forms 
 from django.contrib.auth.forms import User
-from dj_simple_sms.models import SMS
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> df5cdf75761b66adfe380946fd469d2b50152d57
 
 '''
 #Handling registration  obeng william 

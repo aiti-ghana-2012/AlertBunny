@@ -20,11 +20,27 @@
 {% endifnotequal %}
 
 
+
 {% ifnotequal invalidMsg '' %}
 	<div class="alert alert-error fade in" style="float:right;width:700px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
 	<a class="close" data-dismiss="alert" href="#my-alert">&times;</a>
 	<h4 class="alert-heading">Login Failure!</h4>
 	{{ invalidMsg }}
+	
+<!--logo and loginform-->
+<div style="background-color:white:">	
+	<div>	
+		<!--logo--><div  style="float:left;margin-left:200px; background-color:; width:150px; height:100px;">
+				<img src="/static/img/logo.png"/>
+				</div>
+		
+		<!--login form--><form  class="form-inline" action="." method="post">
+			{{ form.as_table }}
+	     		<input class="btn btn-warning" type="submit" value="Log In" />
+			<br/>
+			<b style="margin-left:300px;">Forgot password?</b>
+			
+	  	</form>
 	</div>
 {% endifnotequal %}
 
@@ -59,8 +75,6 @@
 	
 
 <!--picture slide show-->
-	
-
 
 
 
@@ -96,6 +110,17 @@
 
 	
 
+
+ 	<div style="width:200px; border:; height:100px; background-color:; margin-left:200px; margin-top:45px;">
+	<img  src="/static/img/tab 2.png" />
+	</div>
+	<div style="width:200px; border:; height:100px; background-color:; margin-left:500px; margin-top:-110px;">
+	<img src="/static/img/tab1.png"/>
+	</div>
+	<div style="width:200px; border:; height:100px; background-color:; margin-left:800px; margin-top:-110px;">
+	<img src="/static/img/tab 3.png"/>
+	</div>
+</div>
 {% endblock %}
 			
 

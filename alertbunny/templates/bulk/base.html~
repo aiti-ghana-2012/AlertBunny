@@ -1,9 +1,12 @@
 <!DOCTYPE html>  
 <html lang="en">
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> df5cdf75761b66adfe380946fd469d2b50152d57
 	<head>
        
         {% block title %}
@@ -21,6 +24,7 @@
 	</style>
 		
 		
+<<<<<<< HEAD
 	<body bgproperties="fixed">
 		<div>	
 
@@ -78,8 +82,18 @@
      		 
      		 
      	</div>
-			
+=======
+	<body>
 		
+		
+		{% block content %}
+			
+>>>>>>> df5cdf75761b66adfe380946fd469d2b50152d57
+			
+
+		{% endblock %}
+		
+<<<<<<< HEAD
 		
 		{% block content %}
 			
@@ -101,6 +115,38 @@
 		  		<div style="position:absolute;margin-top:-50px;width:190px; height:50px;border:;margin-left:930px;">
 		  		<strong style="text-align:justify;color:white; font-size:35px;"> Create and Send SMS </strong>
 	     </div>
+=======
+			
+	</body>
+	
+</html>
+<!DOCTYPE html>  
+<html lang="en">
+
+
+	<head>
+       
+        {% block title %}
+        	<title>Welcome To AlertBunny!</title>
+        {% endblock title %}
+        <!--The above will make sure we are able to overwrite and get unique titles for every page -->
+		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+	</head>
+
+		
+		
+	<body style="background-color:gray;">
+		
+		
+		{% block content %}
+			
+			
+
+		{% endblock %}
+		
+			
+	</body>
+>>>>>>> df5cdf75761b66adfe380946fd469d2b50152d57
 	
  	<div style="margin-top:-20px;margin-bottom:0px; width:1000px;margin-left:95px;text-align:right;" >
  	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
