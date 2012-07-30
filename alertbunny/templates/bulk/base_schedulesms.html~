@@ -19,17 +19,16 @@
 <script>
 if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
     jQuery(function($){ //on document.ready
-        $('#birthday').datepicker();
+        $('#date').datepicker();
     })
 }
 </script>
+<form method="get" action=".">
+
+<input type="date" id="date" name="date" size="20" /><input type="submit" >
 
 
-<input type="date" id="birthday" name="birthday" size="20" />
-<input type="button" value="Submit" name="B1"></p>
-
-
-
+</form>
 {% endblock %}
 
 

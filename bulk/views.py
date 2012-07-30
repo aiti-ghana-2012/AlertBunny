@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirec
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
+from django.template import Context, loader
 
 
 from django import  forms 
@@ -12,7 +13,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import User
 from dj_simple_sms.models import SMS
 
-from models import Message,Contact,Group,Servicelog
+from models import Message,Contact,Group,Servicelog,Customer
 
 from datetime import date
 
@@ -60,9 +61,83 @@ def send_sms(request):
             return  render_to_response('bulk/base_sentsms.html',{'form':form})
     else:
         form=SMSform()
-    return  render_to_response('bulk/base_sendsms.html',{'form':form})
+        context=Context({'form':form,'user':request.user})
+        return  render_to_response('bulk/base_sendsms.html',context)
 
 
+'''
+opt out function
+'''
+
+
+
+
+'''
+ from django.core.mail import send_mail
+    send_mail(subject, message, sender, recipients)
+
+'''
+class optoutform(ModelForm):
+      class Meta:
+              model=Message
+              exclude=['scheduledate','sent','customer','sender','receiver','body','subject']
+      
+
+def optout(request):
+    message=Message.objects.all()
+    form=optoutform()
+    
+    context=Context({'message':message,'user':request.user,'form':form})
+    return  render_to_response('bulk/base_optout.html',context)
+
+
+
+'''
+creating customer profile form for editing
+'''
+
+
+class Customerform(ModelForm):
+      class Meta:
+              model=Customer
+              
+
+@csrf_exempt
+def customerprofile(request,id):
+    customers=Customer.objects.get(pk=id)
+    if request.method =='POST':
+        form=Customerform(request.POST,instance=customers)
+        if form.is_valid():
+            form.save()
+            context=Context({'form':form,'user':request.user})
+            return HttpResponseRedirect('/bulk/sendsms')
+    else:
+        form=Customerform(instance=customers)
+        context=Context({'form':form,'user':request.user})
+    return  render_to_response('bulk/base_customerprofile.html',context)
+
+
+
+
+
+@csrf_exempt 
+def editmessage(request,id):
+    message=Message.objects.get(pk=id)
+    if request.method =='POST':
+        form=SMSform(request.POST,instance=message)
+        if form.is_valid():
+            form.save()
+            context=Context({'form':form,'user':request.user})
+            return HttpResponseRedirect('/bulk/sendsms')
+    else:
+        form=SMSform(instance=message)
+        context=Context({'form':form,'user':request.user})
+    return  render_to_response('bulk/base_messageedit.html',context)
+
+
+
+
+@csrf_exempt
 def schedule(request):
     return  render_to_response('bulk/base_schedulesms.html')
     

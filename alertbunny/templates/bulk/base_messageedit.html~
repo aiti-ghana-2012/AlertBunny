@@ -1,0 +1,20 @@
+{% extends "bulk/base.html" %}
+
+
+{%block title%}
+<title>register</title>
+{%endblock title%}
+{% block content %}
+<form action="/" method="post">
+
+
+		{{ form.as_p }}
+     	
+  	</form>
+<input type="submit" value="Submit" value="Login!" />
+
+{% endblock %}
+
+
+			
+
