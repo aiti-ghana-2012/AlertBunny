@@ -11,8 +11,6 @@ from django import  forms
 from django.contrib.auth.forms import User
 
 
-
-
 '''
 #Handling registration  obeng william 
 class Registration(form.Form):
@@ -99,8 +97,7 @@ def do_login(request):
 	
 		#YOUR CODE HERE
 	else:
-        	form = LoginForm()
-	form = LoginForm()
+		form = LoginForm()
 	return render_to_response('reg/base_login.html', {
         'form': form,
         'logged_in': request.user.is_authenticated(),

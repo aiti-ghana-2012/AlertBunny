@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib import admin
-from datetime import datetime
+from datetime import date
 
 # Create your models here.
 '''
@@ -140,7 +140,7 @@ class Message(models.Model):
       receiver=models.CharField(max_length=1000)
       body=models.TextField()
 
-      scheduledate=models.DateField(auto_now_add=True)
+      scheduledate=models.DateField(default=date.today())
       sent=models.BooleanField(default=False)
       optout=models.BooleanField(default=False)
       customer=models.ForeignKey(Customer,related_name='messages',blank=True,null=True)

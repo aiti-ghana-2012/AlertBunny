@@ -23,8 +23,9 @@ dj_database_url.config(default="sqlite:/blog_dev.db")
 
 SMS_HANDLERS = (
         'dj_simple_sms.sample_sms_handler',
+        'bulk.schedulesms.schedule_sms',
     )
-
+CRON_POLLING_FREQUENCY = 3
 
 TIME_ZONE ='Africa/Accra'
 

@@ -14,7 +14,7 @@
 {% endifnotequal %}
 
 {% ifnotequal empty_cred '' %}
-	<div class="alert alert-error fade in" style="float:right;width:800px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
+	<div class="alert alert-error fade in" style="float:right;width:800px;margin-top:-165px;margin-bottom:98px;margin-right:140px;">
 	<a class="close" data-dismiss="alert" href="#my-alert">&times;</a>
 	<h4 class="alert-heading">Login Failure!</h4>
 	<p style="text-align:justify;">{{ empty_cred }}</p>
@@ -24,7 +24,7 @@
 
 
 {% ifnotequal invalidMsg '' %}
-	<div class="alert alert-error fade in" style="float:right;width:700px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
+	<div class="alert alert-error fade in" style="float:right;width:700px;margin-top:-165px;margin-bottom:98px;margin-right:140px;">
 	<a class="close" data-dismiss="alert" href="#my-alert">&times;</a>
 	<h4 class="alert-heading">Login Failure!</h4>
 	{{ invalidMsg }}
@@ -33,7 +33,7 @@
 {% endifnotequal %}
 
 {% ifnotequal disabled_accMsg ''%}
-	<div class="alert alert-error" style="float:right;width:700px;margin-top:-150px;margin-bottom:98px;margin-right:140px;">
+	<div class="alert alert-error" style="float:right;width:700px;margin-top:-165px;margin-bottom:98px;margin-right:140px;">
 	<h4 class="alert-heading">Notice!!</h4>
 	<p style="text-align:justify;">{{ disabled_accMsg }}</p>
 	</div>
@@ -96,8 +96,18 @@
             <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
           </div>
 
+<<<<<<< HEAD
 <!--orange line below  style="position:;width:650px; height:373px; border:1px solid orange; background-color:; margin-left:500px; margin-top:-300px;"-->
 	<div style="margin-top:5px;margin-bottom:0px;text-align:right;" class=hr><hr/></div>
+=======
+
+
+	
+
+	
+		
+		<!--orange line below--><div style="margin-top:5px;margin-bottom:0px;text-align:right;" class=hr><hr/></div>
+>>>>>>> fa6452bf73137749fb77fa49d5068b70c1791fd6
         <div style="margin-left:80px;margin-top:-20px;">
         	 <img  src="/static/img/tab1.png" width="400" height="230"/>
         		<div style="position:absolute;margin-top:-120px;width:190px;border:;margin-left:125px;">
@@ -111,6 +121,7 @@
 		  		<div style="position:absolute;margin-top:-120px;width:190px; height:50px;border:;margin-left:930px;">
 		  		<strong style="text-align:justify;color:white; font-size:35px;"> Create and Send SMS </strong>
 	     </div>
+<<<<<<< HEAD
 
 	<div style="margin-top:;margin-bottom:; width:1000px;margin-left:92px;text-align:right;" >
  	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
@@ -118,6 +129,8 @@
 
 
  	
+=======
+>>>>>>> fa6452bf73137749fb77fa49d5068b70c1791fd6
 {% endblock %}
 			
 

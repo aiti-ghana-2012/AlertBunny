@@ -7,7 +7,8 @@ admin.autodiscover()
 
 
 
-
+import django_cron
+#django_cron.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -22,7 +23,6 @@ urlpatterns = patterns('',
     url(r'^reg/',include('reg.urls')),
     url(r'^bulk/',include('bulk.urls')),
     url(r'^sms/', include(dj_simple_sms.urls)),
-    url(r'^sendsms/', include('bulk.urls')),
    
     #url(r'^$', direct_to_template,{ 'template': 'index.html' }, 'index'),
     url(r'^accounts/',include('reg.urls')),
