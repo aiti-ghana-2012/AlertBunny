@@ -2,5 +2,3 @@
 *.pot
 *.pyc
 local_settings.py
-blog_dev.db
-
