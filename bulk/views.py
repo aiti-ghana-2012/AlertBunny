@@ -177,4 +177,8 @@ def editmessage(request,id):
 @csrf_exempt
 def schedule(request):
     return  render_to_response('bulk/base_schedulesms.html')
+
+
+def aboutUs(request):
+    return  render_to_response('bulk/base_abtUs.html',{'user':request.user})
     

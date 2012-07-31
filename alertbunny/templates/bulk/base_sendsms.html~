@@ -7,26 +7,12 @@
 
 {% block content %}
 
-
-<script type="text/javascript">
-    var datefield=document.createElement("input")
-    datefield.setAttribute("type", "date")
-    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
-        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
-        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
-        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
-    }
-</script>
- 
-<script>
-if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
-    jQuery(function($){ //on document.ready
-        $('#date').datepicker();
-    })
-}
-</script>
+<<<<<<< HEAD
 
 
+
+=======
+>>>>>>> b5f07525f2f2e05ef057b95f35baecca07f5d14d
 <div class="modal hide fade" id="myModal">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
@@ -41,6 +27,78 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
   </div>
 </div>
 
+
+<fieldset>
+<div style="position:; width:200px; height:500px; margin-left:200px; margin-right:; margin-top:50px; border:;">
+ <legend><b style="">Quick Links</b></legend>
+	<div class="left_menu">
+	
+	
+  		<ul>
+  			<li><a href="#"><img src="/static/img/icon/contacts.png" width="30" height="30"/> &nbsp contacts</a></li>
+  			<li><a href="#"><img src="/static/img/icon/group.png" width="30" height="30"/> &nbsp groups</a></li>
+  			<li><a href="#"><img src="/static/img/icon/profile.png" width="30" height="30"/> &nbsp profile</a></li>
+  			<li><a href="#"><img src="/static/img/icon/send.png" width="30" height="30"/> &nbsp sent</a></li>
+  			<li><a href="#"><img src="/static/img/icon/opt-out.jpg" width="30" height="30"/> &nbsp opt-out</a></li>
+  			<li><a href="#"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp scheduled msgs</a></li>
+  			</ul>
+  
+  		</div>
+  	</div>
+	</fieldset>
+	
+	
+	<div style="width:600px; height:700px; border:3px solid orange; background-color:white; margin-left:500px; margin-top:-505px; margin-bottom:;">
+	
+		<form class = "" style="margin-left:20px; margin-bottom:200px;" action="." method="post">
+		<fieldset class="">
+		<legend><b style="">Create and Send SMS</b></legend>
+		{{ form.as_p }}
+     	<button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
+        <a data-toggle="modal" href="#myModal"><button class="btn btn-warning"><b>Schedule Message</b> </button></a>
+        </fieldset>
+  		</form>	
+  		
+  	</div>	
+  	
+  	
+	
+  	
+  	
+	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:right;" >
+ 	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
+ 	</div>		
+	
+	<!--<form class="form-vertical" action="." method="post">
+		<fieldset class="">
+		{{ form.as_table }} 
+     	<button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
+        <a data-toggle="modal" href="#myModal"><button class="btn btn-warning"><b>Schedule Message</b> </button></a>
+        </fieldset>
+        
+        <div style="position:; width:; height:; margin-left:; margin-right::margin-top:-10px; border:1px solid gray;">
+  		contacts
+  		groups
+  		profile
+  		sent
+  		optout
+  		scheduled msgs
+  		</div>
+  		
+	 <div class="left">
+ <div style="padding:8px; color:#FFFFFF; background-color:#797979">Registration</div>
+ 	<div class="left_menu">
+    <ul>
+    	<li><a href="vehicle_reg.php"> Vehicle Registration</a></li>
+        <li><a href="driver_reg.php"> Driver Licence Registration</a></li>
+        <li><a href="staff_reg.php">Staff Registration</a></li>
+    </ul>
+    </div>
+ </div>   		
+  		
+  	</form>-->
+	
+
 <div style="width:650px; height:500px; border:1px solid orange; background-color:white; margin-left:300px; margin-top:30px;">
 <form action="." method="post" style="margin-left:20px;">
             <fieldset class="">
@@ -53,6 +111,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 
 
 	</div>
+
 
 
 {% endblock %}

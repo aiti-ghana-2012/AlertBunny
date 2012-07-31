@@ -1,0 +1,165 @@
+{% extends "bulk/base.html" %}
+
+
+{%block title%}
+<title>About Us</title>
+{%endblock title%}
+
+{% block content %}
+ 	{% ifequal user.username ''%}
+
+		<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
+			You are not logged in &nbsp <a href="/reg/login">LOGIN</a>
+		</div>
+		<!--top orange line-->
+		<div style="margin-top:100px;" class=hr><hr/></div>
+	{% else %}
+	<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
+						Welcome &nbsp <i class="icon-user"></i> &nbsp {{user.username}} &nbsp <a href="/reg/logout">LOGOUT</a>
+						</div>
+						<!--top orange line-->
+						<div style="margin-top:100px;" class=hr><hr/></div>
+	
+	{% endifequal  %}
+<fieldset>	
+
+	<div style="overflow:auto;width:900px; height:700px; border:3px solid orange; background-color:white; margin-left:200px; margin-top:10px; margin-bottom:;">
+	
+		
+		<div style="text-align:center;"><b style="">About Us</b></div>
+		
+	<div class="accordion" id="accordion2">
+	<legend style="text-align:center;"><b style="">Our Team</b></legend>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                  C.E.O
+                </a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  <img src="" width="" height=""/>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson 
+                  ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
+                  Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put 
+                  a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                  helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
+                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
+                  synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                 Chief Engineer
+                </a>
+              </div>
+              <div id="collapseTwo" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. 
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur 
+                  butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably 
+                  haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                  Financial Officer
+                </a>
+              </div>
+              <div id="collapseThree" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
+                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you 
+                  probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                  Marketing Officer
+                </a>
+              </div>
+              <div id="collapseFour" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
+                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you 
+                  probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+              <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                  Public Relation & People Officer
+                </a>
+              </div>
+              <div id="collapseFive" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
+                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you 
+                  probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            
+          </div>
+  		
+  	</div>	
+  	
+  	
+	
+  	
+  	
+	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:right;" >
+ 	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
+ 	</div>		
+	
+	<!--<form class="form-vertical" action="." method="post">
+		<fieldset class="">
+		{{ form.as_table }} 
+     	<button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
+        <a data-toggle="modal" href="#myModal"><button class="btn btn-warning"><b>Schedule Message</b> </button></a>
+        </fieldset>
+        
+        <div style="position:; width:; height:; margin-left:; margin-right::margin-top:-10px; border:1px solid gray;">
+  		contacts
+  		groups
+  		profile
+  		sent
+  		optout
+  		scheduled msgs
+  		</div>
+  		
+	 <div class="left">
+ <div style="padding:8px; color:#FFFFFF; background-color:#797979">Registration</div>
+ 	<div class="left_menu">
+    <ul>
+    	<li><a href="vehicle_reg.php"> Vehicle Registration</a></li>
+        <li><a href="driver_reg.php"> Driver Licence Registration</a></li>
+        <li><a href="staff_reg.php">Staff Registration</a></li>
+    </ul>
+    </div>
+ </div>   		
+  		
+  	</form>-->
+	
+
+
+{% endblock %}
+
+
+			
+

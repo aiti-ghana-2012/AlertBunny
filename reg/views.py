@@ -10,7 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django import  forms 
 from django.contrib.auth.forms import User
 
-
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -64,6 +63,7 @@ def register(request):
         pass
 
     return render_to_response("reg/base_register.html", {'form' : form})
+
 
 
 
@@ -163,7 +163,7 @@ def do_login(request):
 	
 		#YOUR CODE HERE
 	else:
-        	form = LoginForm()
+		form = LoginForm()
 	return render_to_response('reg/base_login.html', {
         'form': form,
         'logged_in': request.user.is_authenticated(),
