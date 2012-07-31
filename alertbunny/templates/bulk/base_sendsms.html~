@@ -8,6 +8,25 @@
 {% block content %}
 
 
+<script type="text/javascript">
+    var datefield=document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+    }
+</script>
+ 
+<script>
+if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+    jQuery(function($){ //on document.ready
+        $('#date').datepicker();
+    })
+}
+</script>
+
+
 <div class="modal hide fade" id="myModal">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
@@ -23,11 +42,11 @@
 </div>
 
 <div style="width:650px; height:500px; border:1px solid orange; background-color:white; margin-left:300px; margin-top:30px;">
-<form action="." method="post" style="margin-left:20px:">
+<form action="." method="post" style="margin-left:20px;">
             <fieldset class="">
 		{{ form.as_p }}
      <button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
-     <a data-toggle="modal" href="#myModal"><button class="btn btn-warning"><b>Schedule Message</b> </button></a>
+   
      </fieldset>
   	</form>
 

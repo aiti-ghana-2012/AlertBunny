@@ -23,12 +23,30 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
     })
 }
 </script>
-<form method="get" action=".">
-
-<input type="date" id="date" name="date" size="20" /><input type="submit" >
 
 
-</form>
+
+<div style="width:650px; height:500px; border:1px solid orange; background-color:white; margin-left:300px; margin-top:30px;">
+
+<form action="." method="post" style="margin-left:20px;">
+            <fieldset class="">
+		{{ form.as_p }}
+     <input type="date" id="date" name="date" size="20" />
+     <input type="submit" >
+    
+     </fieldset>
+  	</form>
+
+
+
+	</div>
+
+<!--<form method="get"
+
+<input type="date" id="date" name="date" size="20" />
+
+
+</form>-->
 {% endblock %}
 
 

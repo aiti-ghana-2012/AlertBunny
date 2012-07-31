@@ -4,13 +4,9 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     #url(r'^bulk/$', 'bulk.views.post_list'),
-<<<<<<< HEAD
-=======
-    #url(r'^bulksms/$', 'bulk.views.sample_send_sms'), 
-    url(r'^$', 'bulk.views.send_sms'), 
->>>>>>> 73febcfa8591dab44a74bddd68233eb638823d8f
     url(r'^schedule/$', 'bulk.views.schedule'), 
-    url(r'^sendsms/$', 'bulk.views.send_sms'),
+    url(r'^sendsms/(?P<name>.*?)/$$', 'bulk.views.send_sms'),
+    url(r'^schedulesms/$', 'bulk.views.schedule_sms'),
     url(r'^customer/(?P<id>.*?)/$', 'bulk.views.customerprofile'),
     url(r'^optout/$', 'bulk.views.optout'),
     url(r'^message/(?P<id>.*?)/$', 'bulk.views.editmessage'),

@@ -23,6 +23,7 @@ so the contact class has two FK fields
 
 class Customer(models.Model):
       name = models.CharField(max_length=30)
+      username=models.CharField(max_length=30)
 
       #lastname = models.CharField(max_length=30)
 
@@ -45,7 +46,7 @@ class Customer(models.Model):
       
  
       def __unicode__(self):
-             return self.name
+             return self.username
 
 '''
 describing the customer class
@@ -133,7 +134,8 @@ So  a contact may have many groups.(many to one relationship)
 
 
 class Message(models.Model):
-      subject=models.CharField(max_length=30)
+      subject=models.CharField(max_length=30 ,blank=True,null=True)
+      username=models.CharField(max_length=30)
 
       sender=models.CharField(max_length=30)
 
@@ -208,6 +210,8 @@ class ContactInline(admin.TabularInline):
       model=Contact
 class GroupInline(admin.TabularInline):     
       model=Group
+class MessageInline(admin.TabularInline):     
+      model=Message
 
 
 '''
@@ -223,6 +227,7 @@ class CustomerAdmin(admin.ModelAdmin):
       list_filter=('datecreated','dateupdated')
       inlines=[GroupInline]
       inlines=[ContactInline]
+      inlines=[MessageInline]
       ordering=('-datecreated',)
 
 admin.site.register(Message)

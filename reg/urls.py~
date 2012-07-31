@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     url(r'^login/$', 'reg.views.do_login'), 
     #url(r'^register/$', 'reg.views.register'),
     url(r'^/?next=/$', 'reg.views.do_login'), 
-    url(r'^$', 'reg.views.sample_send_sms'), 
+    # url(r'^$', 'reg.views.sample_send_sms'), 
     
 )

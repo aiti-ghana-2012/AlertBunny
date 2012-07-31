@@ -9,7 +9,7 @@ from django.template import Context, loader
 
 
 from django import  forms 
-from django.forms import ModelForm
+from django.forms import ModelForm,TextInput
 from django.contrib.auth.forms import User
 from dj_simple_sms.models import SMS
 
@@ -24,33 +24,22 @@ beginning sms
 class SMSform(ModelForm):
       class Meta:
               model=Message
-              exclude=['scheduledate','sent','customer']
-
-@csrf_exempt         
-def schedule_sms(request):
-    message = Message.objects.filter(scheduledate__gte=date.today(),sent=False) #.filter(sent__exact=False)
-    for datetoschedule in message:
-           message_to_send = SMS(to_number=datetoschedule.receiver, from_number=datetoschedule.sender, body=datetoschedule.body)
-           message_to_send.send()
-           datetoschedule.sent=True
-           datetoschedule.save()
-    
-    return  HttpResponse(str(message))
-
-
-
-
+              exclude=['sent','customer','optout']
 
 
 
 
 @csrf_exempt
-def send_sms(request):
+def send_sms(request,uname):
+    customers=Customer.objects.get(username=uname)
+
     if request.user.username == '':
 	return HttpResponseRedirect('/reg/login')
 
     if request.method =='POST':
-        form=SMSform(request.POST)
+        message=Message(customer=customers,username=request.user)
+
+        form=SMSform(request.POST,instance=message)
         if form.is_valid():
             form.save()
             '''
@@ -71,6 +60,44 @@ def send_sms(request):
     else:
         form=SMSform()
         return  render_to_response('bulk/base_sendsms.html',{'form':form,'user':request.user})
+
+
+
+
+
+'''
+This is the form for the schedule page
+'''
+class Scheduleform(ModelForm):
+      class Meta:
+              model=Message
+              exclude=['sent','customer','optout']
+        
+      
+
+
+
+#schedule sms function
+
+@csrf_exempt
+def schedule_sms(request):
+    if request.user.username == '':
+	return HttpResponseRedirect('/reg/login')
+
+    if request.method =='POST':
+        form=Scheduleform(request.POST)
+        print 2
+        if form.is_valid():
+            date=form.cleaned_data['body']
+              
+            form.save()
+            return  render_to_response('bulk/base_sentsms.html',{'form':form})
+          
+    else:
+        form=Scheduleform()
+        return  render_to_response('bulk/base_schedulesms.html',{'form':form,'user':request.user})
+
+
 
 
 
