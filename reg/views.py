@@ -11,10 +11,7 @@ from django import  forms
 from django.contrib.auth.forms import User
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> df5cdf75761b66adfe380946fd469d2b50152d57
 
 '''
 #Handling registration  obeng william 
@@ -88,7 +85,7 @@ def do_login(request):
 				if user.is_active:
 					login(request, user)
 					#request.session["uname_sess"] = uname
-					return HttpResponseRedirect('/bulk/bulksms')
+					return HttpResponseRedirect('/bulk/sendsms')
 			
 				##redirect
 				else:

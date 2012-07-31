@@ -63,7 +63,7 @@ u
 
 class Contact(models.Model):
 
-      contactname=models.CharField(max_length=100,blank=True,null=True)
+      groupname=models.CharField(max_length=100,blank=True,null=True)
       contactnumber=models.PositiveIntegerField(blank=False,unique=True)
 
       group=models.ForeignKey('Group',related_name='contacts',blank=True,null=True)
@@ -108,7 +108,7 @@ class Group(models.Model):
 
       datecreated=models.DateTimeField(auto_now_add=True)
       dateupdated=models.DateTimeField(auto_now=True)
-      customer=models.ForeignKey(Customer,related_name='groups')
+      customer=models.ForeignKey(Customer,related_name='groups',blank=True,null=True)
 
       contact=models.ForeignKey(Contact,related_name='groups',blank=True,null=True)
      
@@ -142,7 +142,8 @@ class Message(models.Model):
 
       scheduledate=models.DateField(auto_now_add=True)
       sent=models.BooleanField(default=False)
-      customer=models.ForeignKey(Customer,related_name='messages')
+      optout=models.BooleanField(default=False)
+      customer=models.ForeignKey(Customer,related_name='messages',blank=True,null=True)
 
      
       def createmessagelog():

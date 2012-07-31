@@ -15,16 +15,12 @@
 
 	<style>
   		.hr { height:0; width:1000px;  border-top:3px solid orange; margin-left:170px; }
-  		.hr hr { display:none }
+  		.hr hr { display:none; }
 	</style>
 		
 		
 	<body bgproperties="fixed">
-		<div>	
 
-
-
-		
 		<!--logo-->     
 
 				
@@ -36,7 +32,8 @@
 						<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
 						Welcome &nbsp <i class="icon-user"></i> &nbsp {{user.username}} &nbsp <a href="/reg/logout">LOGOUT</a>
 						</div>
-						<!--top orange line--><div style="margin-top:100px;" class=hr><hr/></div>
+						<!--top orange line-->
+						<div style="margin-top:100px;" class=hr><hr/></div>
 
 
 					{% else %}
@@ -48,7 +45,7 @@
 						<form  class="form-inline" action="." method="post">
 					
 						{{ form.as_table }}
-	     				<button class="btn btn-warning" type="submit" value="LogIn" ><b>Log In</b></button>
+	     				<button class="btn btn-warning" type="submit" value="LogIn"><b>Log In</b></button>
 						<br/>
 						<a href="#"><b style="margin-left:300px;">Forgot password?</b></a>
 			
@@ -65,12 +62,12 @@
 <!--bunny top menu list-->
 	 <div class="bunnymenu" style="margin-left:200px;">
      		<ul>
-     		 	<li><a href="#">Home</a></li>
-     		 	<li><a id='example' rel="popover" title="Who we are..." data-content="Click to see who we are" href="#">About Us</a></li>
-     		 	<li><a href="#">Features</a></li>
-		 	 	<li><a href="#">Buy Credits</a></li>
-		 	 	<li><a href="#">FAQs</a></li>
-		    	<li><a href="#">Contact Us</a></li>
+     		 	<li><a class="example" rel="popover" title="Welcome" data-content="Home" href="/reg/login"><img src="/static/img/icon/home.gif" width="30" height="30"/> &nbsp Home</a></li>
+     		 	<li><a class="example" rel="popover" title="Our awesome services..." data-content="Click to see our awesome services" href="#">Features</a></li>
+		 	 	<li><a class="example" rel="popover" title="Our cheap rates" data-content="Click to see our cheap rates" href="#"><img src="/static/img/icon/credits.jpg" width="30" height="30"/> &nbsp Buy Credits</a></li>
+		 	 	<li><a class="example" rel="popover" title="Your answers are here" data-content="Click to see your solution" href="#"><img src="/static/img/icon/faq.jpg" width="30" height="30"/> &nbsp FAQs</a></li>
+				<li><a class="example" rel="popover" title="Who we are..." data-content="Click to see who we are" href="/bulk/aboutUs">About Us</a></li>
+		    	<li><a class="example" rel="popover" title="Get to us" data-content="Get to hear from  us" href="#"><img src="/static/img/icon/contact-us.png" width="30" height="30"/> &nbsp Contact Us</a></li>
      		 </ul>
 	     		 
      		 
@@ -85,28 +82,15 @@
 		{% endblock %}
 		
 		
-		<!--orange line below--><div style="margin-top:5px;margin-bottom:0px;text-align:right;" class=hr><hr/></div>
-        <div style="margin-left:80px;margin-top:-20px;">
-        	 <img  src="/static/img/tab1.png" width="400" height="230"/>
-        		<div style="position:absolute;margin-top:-120px;width:190px;border:;margin-left:125px;">
-        		<strong style="text-align:justify;color:white; font-size:35px;"> Register </strong>
-        		</div>
-		    <img  src="/static/img/tab2.png" width="400" height="230"/>
-		  		<div style="position:absolute;margin-top:-120px;width:190px;border:;margin-left:527px;">
-		  		<strong style="text-align:justify;color:white; font-size:35px;"> LOGIN </strong>
-		  		</div>
-		    <img  src="/static/img/tab3.png" width="400" height="240"/>
-		  		<div style="position:absolute;margin-top:-120px;width:190px; height:50px;border:;margin-left:930px;">
-		  		<strong style="text-align:justify;color:white; font-size:35px;"> Create and Send SMS </strong>
-	     </div>
+		
 	
- 	<div style="margin-top:-20px;margin-bottom:0px; width:1000px;margin-left:95px;text-align:right;" >
- 	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
- 	</div>		
+ 	
 		
 				
 		
 		
+<!--some sick javascript function call@Nana B.-->
+
 
 	 <script src="/static/bootstrap/js/jquery.js"></script>	
 	 <script src="/static/bootstrap/js/bootstrap.js"></script>
@@ -129,13 +113,21 @@
  	 <script type="text/javascript">
  	 	$(function(){
  	 	$('#myModal').modal('show');
+ 	 	
  	 	})	
  	 	</script>
  	 	
  	 	 <script src="/static/bootstrap/js/bootstrap-popover.js"></script>
  	 <script type="text/javascript">
  	 	$(function(){
- 	 	$('#example').popover({placement:'bottom'});
+ 	 	$('.example').popover({placement:'bottom'});
+ 	 	})	
+ 	 	</script>
+ 	 	
+ 	 	 <script src="/static/bootstrap/js/bootstrap-collapse.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$(".collapse").collapse();
  	 	})	
  	 	</script>
 	</body>

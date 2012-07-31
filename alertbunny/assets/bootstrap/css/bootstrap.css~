@@ -162,7 +162,7 @@ body {
   line-height: 18px;
   color: #333333;
   background-color: #ffffff;
-  background-image:url("/static/img/diamond.gif");
+  background-image:url("/static/img/grid1.png");
   
 }
 
@@ -4953,23 +4953,6 @@ a.badge:hover {
   color: #ffffff;
 }
 
-.hero-unit {
-  padding: 60px;
-  margin-bottom: 30px;
-  background-color: #eeeeee;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-}
-
-.hero-unit h1 {
-  margin-bottom: 0;
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
-  color: inherit;
-}
-
 .hero-unit p {
   font-size: 18px;
   font-weight: 200;
@@ -5057,7 +5040,7 @@ color:black;
 
 .bunnymenu li a.current {
 float: left;
-display: block;
+display:block;
 margin-right:2px;
 color:#333333;
 padding: 10px 15px 10px 10px;
@@ -5073,10 +5056,53 @@ color:white;
 }
 
 
+/*left-panel*/
 
 
 
 
+
+.left_menu{
+	width: 100%; /*width of menu*/
+	border-style: solid solid solid solid;
+	border-color:#E5E5E5;
+	border-size: 1px;
+	border-width: 1px;
+}
+
+.left_menu ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	List-style: none;
+}
+	
+.left_menu li a{
+	font: 15px Verdana, Arial, Helvetica, sans-serif;
+	display: block;
+  	height: 30px; /*Set to height of bg image- padding within link (ie: 32px - 4px - 4px)*/
+	padding: 4px 0 4px 20px;
+	border-bottom:1px solid orange;
+	line-height: 24px; /*Set line-height of bg image- padding within link (ie: 32px - 4px - 4px)*/
+	text-decoration: none;
+	background-color:#f5f5f5;
+	color:black;
+}	
+	
+.left_menu li a:link, .left_menu li a:visited {
+	color:;
+}
+
+.left_menu li a:hover{
+	color: #ffffff;
+	background-color:#ff8c00; /*#797979;*/
+}
+
+	
+.left_menu li a.selected{
+	color: #26370A;
+	background-position: 100% -64px;
+}
 /*******************************************/
 /*******************************************/
 
