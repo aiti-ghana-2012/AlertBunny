@@ -5,12 +5,16 @@ from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirec
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
+from bulk.models import Message,Contact,Group,Servicelog,Customer
 
 
 from django import  forms 
 from django.contrib.auth.forms import User
+import datetime, random, sha
 
 from django.contrib.auth.forms import UserCreationForm
+import datetime
+from django.core.mail import send_mail
 
 
 
@@ -24,9 +28,12 @@ trying  another way to do registration of users
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(label = "Email")
     fullname = forms.CharField(label = "Full	 name")
+    
+    
 
     class Meta:
         model = User
+        exclude=['activation_key','key_expires']
         fields = ("username", "fullname", "email",)
 
 
@@ -41,6 +48,7 @@ def save(self, commit=True):
         first_name, last_name = self.cleaned_data["fullname"].split()
         user.first_name = first_name
         user.last_name = last_name
+        
         user.email = self.cleaned_data["email"]
         if commit:
             user.save()
@@ -50,19 +58,44 @@ def save(self, commit=True):
 
 @csrf_exempt
 def register(request):
-    form = RegisterForm()
+    if request.user.username != '':
+       logout(request)
+       request.user.username=''
+    form = RegisterForm(request.POST)
     if request.method == 'POST':
-      
+       
        if form.is_valid():
-            print 3
+            
             new_user = form.save();
             new_user = authenticate(username=request.POST['username'], password=request.POST['password1'])
             login(request, new_user)
-            return HttpResponseRedirect('/books' + uname)
-    else:
-        pass
+            salt = sha.new(str(random.random())).hexdigest()[:5]
+            activation_key = sha.new(salt+new_user.username).hexdigest()
+            key_expires = datetime.datetime.today() + datetime.timedelta(2)
+            customer=Customer()
+            customer.username=request.user
+            customer.activation_key=activation_key
+            customer.key_expires=key_expires
+            customer.save()
+            
 
-    return render_to_response("reg/base_register.html", {'form' : form})
+            email_subject = 'Your new alertbunny account confirmation'
+
+            email_body = "Hello,%s, thanks for signing up. \n\nTo activate your account, click this link within 48hours:\n\nhttp://e/accounts/confirm/%s" %( new_user.username,activation_key)
+
+            send_mail(email_subject,
+                      email_body,
+                      'obengpython@gmail.com',
+                      [new_user.email])
+
+            return HttpResponseRedirect('/bulk/sendsms')
+    else:
+            pass 
+
+    return render_to_response("reg/base_register.html", {'form' : form ,'user':request.user})
+
+
+
 
 
 
@@ -128,6 +161,7 @@ class LoginForm(forms.Form):
 
 # Login view - @Nana B.
 #tested code and it works logs in perfectly
+
 @csrf_exempt
 def do_login(request):
 	empty_cred = '' #empty login credential variable
@@ -137,7 +171,7 @@ def do_login(request):
         already_logged_in=''#william made changes to your code here...had errors to added this to work
 	if request.user.username != '':
 		already_logged_in = 'You are already logged in.'
-
+        form = LoginForm()
 	if request.method == 'POST':
    	        uname = request.POST['username']	
 		pword = request.POST['password']
@@ -149,7 +183,7 @@ def do_login(request):
 				if user.is_active:
 					login(request, user)
 					#request.session["uname_sess"] = uname
-					return HttpResponseRedirect('/bulk/sendsms/' + uname)
+					return HttpResponseRedirect('/bulk/sendsms/')
 			
 				##redirect
 				else:

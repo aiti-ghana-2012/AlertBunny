@@ -1,15 +1,13 @@
 from dj_simple_sms.models import SMS
 from models import Message
 
-
-from datetime import date
-
-
+from django.utils.timezone import now
+import datetime
 
 
 
 def schedule_sms():
-    message = Message.objects.filter(scheduledate=date.today(),sent=False)
+    message = Message.objects.filter(scheduledate__lt=now(), sent=False, optout=False)
     
     for datetoschedule in message:
            yet_to_receive=datetoschedule.receiver.split(',')

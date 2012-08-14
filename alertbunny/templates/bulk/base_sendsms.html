@@ -13,28 +13,28 @@
     <h3>MESSAGE STATUS</h3>
   </div>
   <div class="modal-body">
-    <p>YOUR MESSAGE HAS BEEN SENT</p>
+    <p><h3>Please seperate with commas if sending to more than one number. Thank you. </h3></p>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
   </div>
 </div>
 
 
 <fieldset>
-<div style="position:; width:200px; height:500px; margin-left:200px; margin-right:; margin-top:50px; border:;">
+<div style=" position:; width:200px; height:500px; margin-left:200px; margin-right:; margin-top:50px; border:;">
  <legend><b style="">Quick Links</b></legend>
 	<div class="left_menu">
 	
 	
-  		<ul>
-  			<li><a href="#"><img src="/static/img/icon/contacts.png" width="30" height="30"/> &nbsp contacts</a></li>
-  			<li><a href="#"><img src="/static/img/icon/group.png" width="30" height="30"/> &nbsp groups</a></li>
-  			<li><a href="#"><img src="/static/img/icon/profile.png" width="30" height="30"/> &nbsp profile</a></li>
-  			<li><a href="#"><img src="/static/img/icon/send.png" width="30" height="30"/> &nbsp sent</a></li>
-  			<li><a href="#"><img src="/static/img/icon/opt-out.jpg" width="30" height="30"/> &nbsp opt-out</a></li>
-  			<li><a href="#"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp scheduled msgs</a></li>
+  		<ul class="nav nav-pills nav-stacked">
+                        <li><a href="/bulk/sendsms/"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp send sms</a></li>
+  		
+  			<li><a href="/bulk/group/"><img src="/static/img/icon/group.png" width="30" height="30"/> &nbsp Contacts</a></li>
+  			<li><a href="/bulk/profile/"><img src="/static/img/icon/profile.png" width="30" height="30"/> &nbsp Profile</a></li>
+  			<li><a href="/bulk/sentsms/"><img src="/static/img/icon/send.png" width="30" height="30"/> &nbsp Sent</a></li>
+  			<li><a href="/bulk/optout/"><img src="/static/img/icon/opt-out.jpg" width="30" height="30"/> &nbsp Opt-out</a></li>
+  			<li><a href="/bulk/scheduled/"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp Scheduled Msgs</a></li>
   			</ul>
   
   		</div>
@@ -42,14 +42,13 @@
 	</fieldset>
 	
 	
-	<div style="width:600px; height:700px; border:3px solid orange; background-color:white; margin-left:500px; margin-top:-505px; margin-bottom:;">
+	<div style="border-radius:50px; width:600px; height:700px; border:3px solid orange; background-color:white; margin-left:500px; margin-top:-505px; margin-bottom:;">
 	
-		<form class = "" style="margin-left:20px; margin-bottom:200px;" action="." method="post">
+		<form class = "form-outline" style="margin-left:20px; margin-bottom:200px;" action="." method="post">
 		<fieldset class="">
 		<legend><b style="">Create and Send SMS</b></legend>
 		{{ form.as_p }}
      	<button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
-        <a data-toggle="modal" href="#myModal"><button class="btn btn-warning"><b>Schedule Message</b> </button></a>
         </fieldset>
   		</form>	
   		
@@ -59,9 +58,31 @@
 	
   	
   	
-	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:right;" >
- 	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
- 	</div>		
+	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:;" >
+ 	<hr style="border:2px solid gray;"/>
+ 	<ul class="breadcrumb" style>
+ 	 <li>
+ 	 <a href="/reg/login">Home </a><span class="divider">/</span></li>
+   <li>
+    <a href="/bulk/features">Features</a> <span class="divider">/</span>
+   </li>
+   <li>
+   <a href="/bulk/buyCredit">Buy Credits</a></li><span class="divider">/</span>
+   <li>
+    <a href="/bulk/faqs">FAQS</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/aboutUs">About Us</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/contactUs">Contact Us</a>
+   </li>
+   
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   &nbsp &nbsp 
+   <li><div style="text-align:right;"><a href="">Terms and Conditions</a> Copyright &nbsp &copy; 2012 , 		KODEIT SYSTEMS</div></li>
+</ul>
+ 	</div>	
 	
 	<!--<form class="form-vertical" action="." method="post">
 		<fieldset class="">
@@ -90,7 +111,7 @@
     </div>
  </div>   		
   		
-  	</form>-->
+  	</form>
 	
 
 <div style="width:650px; height:500px; border:1px solid orange; background-color:white; margin-left:300px; margin-top:30px;">
@@ -105,7 +126,7 @@
 
 
 	</div>
-
+-->
 
 
 {% endblock %}

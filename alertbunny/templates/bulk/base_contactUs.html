@@ -1,0 +1,126 @@
+{% extends "bulk/base_static.html" %}
+
+
+{%block title%}
+<title>Contact Us</title>
+{%endblock title%}
+
+{% block content %}
+
+	<div style="overflow:auto;width:900px; height:700px; border:3px solid orange; background-color:white; margin-left:200px; margin-top:10px; margin-bottom:;">
+	
+		<div class="accordion" id="accordion2">
+            <div class="accordion-group">
+              <div class="accordion-heading" style="font-size:24px; text-align:center;">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                  Contact
+                </a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <p>1st Floor ICT Directorate <br/>
+                  University of Ghana, Legon</p><br/>
+                  Email : <a href="maito:info@alertbunny.com">info@alertbunny.com</a><br/>
+                  Hotline : +233 302 56 78, &nbsp +233 24 786 7789<br/>
+                  <a href="bulk/base_login">http://www.alertbunny.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading" style="font-size:24px; text-align:center;">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                  Contact Form               
+                   </a>
+              </div>
+              <div id="collapseTwo" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <form class="">
+							
+								
+  							<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Enter Name"/><br/>
+							<input style="border: 1px solid orange;" type="text" class="span3" placeholder="    		Enter Email"/><br/>
+							<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Enter Subject"/><br/>		
+							<textarea style="border: 1px solid orange; height:200px; width:400px;" type="text" placeholder="Type your message here..."></textarea><br/>
+							<button style="" class="btn btn-warning btn-large" type="submit" value=""><b>Send Email</b></button>
+			
+					</form>
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            
+             
+          </div>
+
+		
+  		
+  </div>	
+  	
+  	
+	
+  	
+  	
+	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:;" >
+ 	<hr style="border:2px solid gray;"/>
+ 	<ul class="breadcrumb" style>
+ 	 <li>
+ 	 <a href="/reg/login">Home </a><span class="divider">/</span></li>
+   <li>
+    <a href="/bulk/features">Features</a> <span class="divider">/</span>
+   </li>
+   <li>
+   <a href="/bulk/buyCredit">Buy Credits</a></li><span class="divider">/</span>
+   <li>
+    <a href="/bulk/faqs">FAQS</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/aboutUs">About Us</a> <span class="divider">/</span>
+   </li>
+   <li class="active">
+    Contact Us
+   </li>
+   
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   &nbsp &nbsp 
+   <li><div style="text-align:right;"><a href="">Terms and Conditions</a> Copyright &nbsp &copy; 2012 , 		KODEIT SYSTEMS</div></li>
+</ul>
+ 	</div>		
+	
+	<!--<form class="form-vertical" action="." method="post">
+		<fieldset class="">
+		{{ form.as_table }} 
+     	<button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
+        <a data-toggle="modal" href="#myModal"><button class="btn btn-warning"><b>Schedule Message</b> </button></a>
+        </fieldset>
+        
+        <div style="position:; width:; height:; margin-left:; margin-right::margin-top:-10px; border:1px solid gray;">
+  		contacts
+  		groups
+  		profile
+  		sent
+  		optout
+  		scheduled msgs
+  		</div>
+  		
+	 <div class="left">
+ <div style="padding:8px; color:#FFFFFF; background-color:#797979">Registration</div>
+ 	<div class="left_menu">
+    <ul>
+    	<li><a href="vehicle_reg.php"> Vehicle Registration</a></li>
+        <li><a href="driver_reg.php"> Driver Licence Registration</a></li>
+        <li><a href="staff_reg.php">Staff Registration</a></li>
+    </ul>
+    </div>
+ </div>   		
+  		
+  	</form>-->
+	
+
+
+{% endblock %}
+
+
+			
+

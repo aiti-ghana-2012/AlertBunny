@@ -1,0 +1,173 @@
+{% extends "bulk/base.html" %}
+
+
+{%block title%}
+<title>Edit Message</title>
+{%endblock title%}
+
+{% block content %}
+
+>
+
+
+<fieldset>
+<div style="position:; width:200px; height:500px; margin-left:200px; margin-right:; margin-top:50px; border:;">
+ <legend><b style="">Quick Links</b></legend>
+	<div class="left_menu">
+	
+	
+  		<ul class="nav nav-pills nav-stacked">
+<li><a href="/bulk/sendsms/"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp send sms</a></li>
+  			
+  			
+  			<li><a href="/bulk/group/"><img src="/static/img/icon/group.png" width="30" height="30"/> &nbsp Contacts</a></li>
+  			<li><a href="/bulk/profile/"><img src="/static/img/icon/profile.png" width="30" height="30"/> &nbsp Profile</a></li>
+  			<li><a href="/bulk/sentsms/"><img src="/static/img/icon/send.png" width="30" height="30"/> &nbsp Sent</a></li>
+  			<li><a href="/bulk/optout/"><img src="/static/img/icon/opt-out.jpg" width="30" height="30"/> &nbsp Opt-out</a></li>
+  			<li><a href="/bulk/scheduled/"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp Scheduled msgs</a></li>
+			
+  </ul>
+  		</div>
+  	</div>
+	</fieldset>
+	
+	
+	<div style=" overflow:auto; width:600px; height:900px; border:3px solid orange; background-color:white; margin-left:500px; margin-top:-505px; margin-bottom:;">
+	
+		<form class = "form-outline" style="margin-left:20px; margin-bottom:200px;" action="." method="post">
+		<fieldset class="">
+                
+		{{ form.as_p }}
+     	
+  	
+           <button type="submit"  class="btn btn-warning"> <b>Add Contacts</b> <button/>
+               </fieldset>
+		
+  		</form>	
+  		
+  	</div>	
+  	
+  	
+	
+  	
+  	
+	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:;" >
+ 	<hr style="border:2px solid gray;"/>
+ 	<ul class="breadcrumb" style>
+ 	 <li>
+ 	 <a href="/reg/login">Home </a><span class="divider">/</span></li>
+   <li>
+    <a href="/bulk/features">Features</a> <span class="divider">/</span>
+   </li>
+   <li>
+   <a href="/bulk/buyCredit">Buy Credits</a></li><span class="divider">/</span>
+   <li>
+    <a href="/bulk/faqs">FAQS</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/aboutUs">About Us</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/contactUs">Contact Us</a>
+   </li>
+   
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   &nbsp &nbsp 
+   <li><div style="text-align:right;"><a href="">Terms and Conditions</a> Copyright &nbsp &copy; 2012 , 		KODEIT SYSTEMS</div></li>
+</ul>
+ 	</div>	
+	
+	<!--<form class="form-vertical" action="." method="post">
+		<fieldset class="">
+		{{ form.as_table }} 
+     	<button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
+        <a data-toggle="modal" href="#myModal"><button class="btn btn-warning"><b>Schedule Message</b> </button></a>
+        </fieldset>
+        
+        <div style="position:; width:; height:; margin-left:; margin-right::margin-top:-10px; border:1px solid gray;">
+  		contacts
+  		groups
+  		profile
+  		sent
+  		optout
+  		scheduled msgs
+  		</div>
+  		
+	 <div class="left">
+ <div style="padding:8px; color:#FFFFFF; background-color:#797979">Registration</div>
+ 	<div class="left_menu">
+    <ul>
+    	<li><a href="vehicle_reg.php"> Vehicle Registration</a></li>
+        <li><a href="driver_reg.php"> Driver Licence Registration</a></li>
+        <li><a href="staff_reg.php">Staff Registration</a></li>
+    </ul>
+    </div>
+ </div>   		
+  		
+  	</form>
+	
+
+<div style="width:650px; height:500px; border:1px solid orange; background-color:white; margin-left:300px; margin-top:30px;">
+<form action="." method="post" style="margin-left:20px;">
+            <fieldset class="">
+		{{ form.as_p }}
+     <button class="btn btn-warning" type="submit" value="SendSMS" ><b>Send SMS</b></button>
+   
+     </fieldset>
+  	</form>
+
+
+
+	</div>
+-->
+
+
+{% endblock %}
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+

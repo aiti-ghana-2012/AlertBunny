@@ -1,4 +1,4 @@
-{% extends "bulk/base.html" %}
+{% extends "bulk/base_static.html" %}
 
 
 {%block title%}
@@ -6,15 +6,56 @@
 {%endblock title%}
 {% block content %}
 
-
-<h1>Create an account</h1>
-<form action="." method="post">
+<div style="overflow:auto;width:900px; height:700px; border:3px solid orange; background-color:white; margin-left:200px; margin-top:10px; margin-bottom:;">
+<h1 style="text-align:center;">Create an account</h1>
+<form style="margin-left:250px;"class="form-outline" action="." method="post">
 		{{ form.as_p }}
-     	<input type="submit" value="Submit" value="Login!" />
+     	<!--<input type="submit" value="Submit" value="Login!" />-->
+     	
+     	
+	<div class="">
+            <input style="margin: 0; float: left;" align="absmiddle" name="agree" id="agree" type="checkbox" value="" />
+
+          <div style="padding-left:15px;font-size:11px;"><p>I have read and agree to the<br/> 
+          <a href="#" target="_blank">Terms of Service </> and <a href="#" target="_blank">Privacy Policy </a><br/>
+           and to receive communication from <br/>
+           AlertBunny electronically.</p></div>
+          </div>
+        </div>
+		  	<button style="margin-left:650px; margin-top:-350px;"class="btn btn-warning btn-large" type="submit" value="" ><b>Create Account</b></button>     	
+     	
+     	
   	</form>
+  	
+  	
+  	
 
+</div>
 
-
+<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:;" >
+	<hr style="border:2px solid gray;"/>
+ 	<ul class="breadcrumb" style>
+ 	 <li>
+ 	 <a href="/reg/login">Home </a><span class="divider">/</span></li>
+   <li>
+    <a href="/bulk/features">Features</a> <span class="divider">/</span>
+   </li>
+   <li>
+   <a href="/bulk/buyCredit">Buy Credits</a></li><span class="divider">/</span>
+   <li>
+    <a href="/bulk/faqs">FAQS</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/aboutUs">About Us</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/contactUs">Contact Us</a>
+   </li>
+   
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   &nbsp &nbsp 
+   <li><div style="text-align:right;"><a href="">Terms and Conditions</a> Copyright &nbsp &copy; 2012 , 		KODEIT SYSTEMS</div></li>
+</ul>
+</div>		
 {% endblock %}
 			
-

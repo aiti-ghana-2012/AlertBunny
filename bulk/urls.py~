@@ -4,21 +4,21 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     #url(r'^bulk/$', 'bulk.views.post_list'),
-    url(r'^schedule/$', 'bulk.views.schedule'), 
-<<<<<<< HEAD
-    url(r'^sendsms/(?P<uname>.*?)/$$', 'bulk.views.send_sms'),
-    url(r'^schedulesms/$', 'bulk.views.schedule_sms'),
-=======
+    url(r'^scheduled/$', 'bulk.views.scheduled'), 
     url(r'^sendsms/$', 'bulk.views.send_sms'),
+    url(r'^profile/$', 'bulk.views.profile'),
+    url(r'^sentsms/$', 'bulk.views.sent_sms'),
+    url(r'^group/$', 'bulk.views.grouplist'),
+   
 
     url(r'^aboutUs/$', 'bulk.views.aboutUs'),
-    #url(r'^customer/(?P<id>.*?)/$', 'bulk.views.customerprofile'),
     #url(r'^optout/$', 'bulk.views.optout'),
     #url(r'^message/(?P<id>.*?)/$', 'bulk.views.editmessage'),
-
->>>>>>> b5f07525f2f2e05ef057b95f35baecca07f5d14d
-    url(r'^customer/(?P<id>.*?)/$', 'bulk.views.customerprofile'),
     url(r'^optout/$', 'bulk.views.optout'),
+    url(r'^optout/(?P<id>.*?)/$', 'bulk.views.editoptout'),
     url(r'^message/(?P<id>.*?)/$', 'bulk.views.editmessage'),
-
+    url(r'^group/(?P<id>.*?)/$', 'bulk.views.groupcontact'),
+    url(r'^addcontacts/(?P<id>.*?)/$', 'bulk.views.addcontact'),
+    url(r'^addgroup/$', 'bulk.views.addgroup'),
+    url(r'^groupcontacts/(?P<id>.*?)/$', 'bulk.views.groupcontacts'),
 )

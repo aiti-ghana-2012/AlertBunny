@@ -162,7 +162,7 @@ body {
   line-height: 18px;
   color: #333333;
   background-color: #ffffff;
-  background-image:url("/static/img/grid1.png");
+ /* background-image:url("/static/img/grid1.png");*/
   
 }
 
@@ -1398,6 +1398,12 @@ select:focus:required:invalid:focus {
      -moz-border-radius: 14px;
           border-radius: 14px;
 }
+
+.form-outline input,
+.form-outline textarea
+{
+border: 1px solid orange;	}
+
 .form-inline
 {
 	margin-left:670px;
@@ -4824,6 +4830,8 @@ a.badge:hover {
 
 .accordion-heading {
   border-bottom: 0;
+  background-color:#f5f5f5;
+  
 }
 
 .accordion-heading .accordion-toggle {
@@ -4999,7 +5007,7 @@ background-image:url("../img/tab1.png");
 
 .bunnymenu {
 overflow: hidden;
-width:;
+width:80%;
 padding-top:0px;
 margin-left:0px;
 margin-top:0px;
@@ -5009,7 +5017,7 @@ margin-bottom:15px;
 .bunnymenu ul{
 font: 14px Verdana, sans-serif;
 margin: 0;
-padding:5px;
+padding:1px;
 width: 100%;
 List-style: none;
 }
@@ -5017,8 +5025,8 @@ List-style: none;
 .bunnymenu li{
 display: inline;
 margin: 0 2px 0 0;
-padding: 10px 0px 8px 10px;
-padding-right:50px; 
+padding: 5px 0px 5px 10px;
+padding-right:30px; 
 text-transform: None;
 }
 
@@ -5064,8 +5072,8 @@ color:white;
 
 .left_menu{
 	width: 100%; /*width of menu*/
-	border-style: solid solid solid solid;
-	border-color:#E5E5E5;
+	border-style:;
+	border-color:;
 	border-size: 1px;
 	border-width: 1px;
 }
@@ -5100,7 +5108,7 @@ color:white;
 
 	
 .left_menu li a.selected{
-	color: #26370A;
+	color:#ff8c00;
 	background-position: 100% -64px;
 }
 /*******************************************/

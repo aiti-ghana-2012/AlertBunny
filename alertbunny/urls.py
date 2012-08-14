@@ -8,7 +8,8 @@ admin.autodiscover()
 
 
 import django_cron
-#django_cron.autodiscover()
+django_cron.autodiscover()
+print 'hm'
 
 urlpatterns = patterns('',
     # Examples:

@@ -8,22 +8,134 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Person'
-        db.create_table('bulk_person', (
+        # Adding model 'Customer'
+        db.create_table('bulk_customer', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
+            ('username', self.gf('django.db.models.fields.CharField')(max_length=30)),
+            ('email', self.gf('django.db.models.fields.EmailField')(max_length=254, unique=True, null=True, blank=True)),
+            ('mobilenumber', self.gf('django.db.models.fields.PositiveIntegerField')(unique=True, null=True, blank=True)),
+            ('datecreated', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, null=True, blank=True)),
+            ('dateupdated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, null=True, blank=True)),
+            ('gender', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
+            ('companyname', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
+            ('postalAddress', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
         ))
-        db.send_create_signal('bulk', ['Person'])
+        db.send_create_signal('bulk', ['Customer'])
+
+        # Adding model 'Contact'
+        db.create_table('bulk_contact', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('groupname', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
+            ('contactnumber', self.gf('django.db.models.fields.PositiveIntegerField')(unique=True)),
+            ('group', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='contacts', null=True, to=orm['bulk.Group'])),
+            ('datecreated', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('dateupdated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('customer', self.gf('django.db.models.fields.related.ForeignKey')(default='', related_name='contacts', to=orm['bulk.Customer'])),
+        ))
+        db.send_create_signal('bulk', ['Contact'])
+
+        # Adding model 'Group'
+        db.create_table('bulk_group', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('groupname', self.gf('django.db.models.fields.CharField')(max_length=30)),
+            ('datecreated', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('dateupdated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('customer', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='groups', null=True, to=orm['bulk.Customer'])),
+            ('contact', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='groups', null=True, to=orm['bulk.Contact'])),
+        ))
+        db.send_create_signal('bulk', ['Group'])
+
+        # Adding model 'Message'
+        db.create_table('bulk_message', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('subject', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
+            ('username', self.gf('django.db.models.fields.CharField')(max_length=30)),
+            ('sender', self.gf('django.db.models.fields.CharField')(max_length=30)),
+            ('receiver', self.gf('django.db.models.fields.CharField')(max_length=1000)),
+            ('body', self.gf('django.db.models.fields.TextField')()),
+            ('scheduledate', self.gf('django.db.models.fields.DateField')(default=datetime.datetime(2012, 7, 31, 0, 0))),
+            ('sent', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('optout', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('customer', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='messages', null=True, to=orm['bulk.Customer'])),
+        ))
+        db.send_create_signal('bulk', ['Message'])
+
+        # Adding model 'Servicelog'
+        db.create_table('bulk_servicelog', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('smsstatus', self.gf('django.db.models.fields.TextField')()),
+        ))
+        db.send_create_signal('bulk', ['Servicelog'])
 
 
     def backwards(self, orm):
-        # Deleting model 'Person'
-        db.delete_table('bulk_person')
+        # Deleting model 'Customer'
+        db.delete_table('bulk_customer')
+
+        # Deleting model 'Contact'
+        db.delete_table('bulk_contact')
+
+        # Deleting model 'Group'
+        db.delete_table('bulk_group')
+
+        # Deleting model 'Message'
+        db.delete_table('bulk_message')
+
+        # Deleting model 'Servicelog'
+        db.delete_table('bulk_servicelog')
 
 
     models = {
-        'bulk.person': {
-            'Meta': {'object_name': 'Person'},
+        'bulk.contact': {
+            'Meta': {'object_name': 'Contact'},
+            'contactnumber': ('django.db.models.fields.PositiveIntegerField', [], {'unique': 'True'}),
+            'customer': ('django.db.models.fields.related.ForeignKey', [], {'default': "''", 'related_name': "'contacts'", 'to': "orm['bulk.Customer']"}),
+            'datecreated': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'dateupdated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'group': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'contacts'", 'null': 'True', 'to': "orm['bulk.Group']"}),
+            'groupname': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
+        },
+        'bulk.customer': {
+            'Meta': {'object_name': 'Customer'},
+            'companyname': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
+            'datecreated': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
+            'dateupdated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'null': 'True', 'blank': 'True'}),
+            'email': ('django.db.models.fields.EmailField', [], {'max_length': '254', 'unique': 'True', 'null': 'True', 'blank': 'True'}),
+            'gender': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'mobilenumber': ('django.db.models.fields.PositiveIntegerField', [], {'unique': 'True', 'null': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
+            'postalAddress': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'username': ('django.db.models.fields.CharField', [], {'max_length': '30'})
+        },
+        'bulk.group': {
+            'Meta': {'object_name': 'Group'},
+            'contact': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'groups'", 'null': 'True', 'to': "orm['bulk.Contact']"}),
+            'customer': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'groups'", 'null': 'True', 'to': "orm['bulk.Customer']"}),
+            'datecreated': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'dateupdated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'groupname': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
+        },
+        'bulk.message': {
+            'Meta': {'object_name': 'Message'},
+            'body': ('django.db.models.fields.TextField', [], {}),
+            'customer': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'messages'", 'null': 'True', 'to': "orm['bulk.Customer']"}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'optout': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'receiver': ('django.db.models.fields.CharField', [], {'max_length': '1000'}),
+            'scheduledate': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2012, 7, 31, 0, 0)'}),
+            'sender': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
+            'sent': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'subject': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
+            'username': ('django.db.models.fields.CharField', [], {'max_length': '30'})
+        },
+        'bulk.servicelog': {
+            'Meta': {'object_name': 'Servicelog'},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'smsstatus': ('django.db.models.fields.TextField', [], {})
         }
     }
 

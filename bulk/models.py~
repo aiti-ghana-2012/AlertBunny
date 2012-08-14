@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib import admin
-from datetime import date
+
+
+from django.utils.timezone import now
 
 # Create your models here.
 '''
@@ -22,25 +24,26 @@ so the contact class has two FK fields
 '''
 
 class Customer(models.Model):
-      name = models.CharField(max_length=30)
-      username=models.CharField(max_length=30)
+      name = models.CharField(max_length=30,blank=True,null=True)
+      username=models.CharField(max_length=30 unique=True)
 
       #lastname = models.CharField(max_length=30)
 
-      email = models.EmailField(max_length=254,unique=True)
+      email = models.EmailField(max_length=254,unique=True,blank=True,null=True)
 
-      mobilenumber=models.PositiveIntegerField(blank=True,unique=True)
+      mobilenumber=models.PositiveIntegerField(unique=True,blank=True,null=True)
       
-      datecreated=models.DateTimeField(auto_now_add=True)
-      dateupdated=models.DateTimeField(auto_now=True)
+      datecreated=models.DateTimeField(auto_now_add=True,blank=True,null=True)
+      dateupdated=models.DateTimeField(auto_now=True,blank=True,null=True)
 
-      dateofbirth=models.DateField()
 
-      gender=models.CharField(max_length=30)
+      gender=models.CharField(max_length=30,blank=True,null=True)
 
-      companyname=models.CharField(max_length=30,unique=True)
+      companyname=models.CharField(max_length=30,blank=True,null=True)
 
-      postalAddress=models.TextField()
+      postalAddress=models.TextField(blank=True,null=True)
+      activation_key = models.CharField(max_length=40,null=True)
+      key_expires = models.DateTimeField(null=True)
 
 
       
@@ -53,7 +56,7 @@ describing the customer class
 inside the customer class we have an email,mobile number ,date of birth ,customer's company name and then their postal address.
 the email field should be unique in our database and must have  a maximum length of 254 
 the mobile number and the companyname are also unique(database)
-
+username=models.CharField(max_length=30)
 
 
 when we refer to the customer class in our views we have email as our initials
@@ -63,16 +66,16 @@ u
 '''
 
 class Contact(models.Model):
-
-      groupname=models.CharField(max_length=100,blank=True,null=True)
-      contactnumber=models.PositiveIntegerField(blank=False,unique=True)
+      username=models.CharField(max_length=30)
+      groupname=models.CharField(max_length=100,blank=True,null=True )
+      contactnumber=models.PositiveIntegerField(blank=False)
 
       group=models.ForeignKey('Group',related_name='contacts',blank=True,null=True)
       
       datecreated=models.DateTimeField(auto_now_add=True)
       dateupdated=models.DateTimeField(auto_now=True)
 
-      customer=models.ForeignKey(Customer,related_name='contacts' ,default='')
+      #customer=models.ForeignKey(Customer,related_name='contacts'
       
       
       def viewcontact():
@@ -105,13 +108,15 @@ when we refer to the contact class in our views we have groupname as our initial
 
 
 class Group(models.Model):
-      groupname=models.CharField(max_length=30)
+      groupname=models.CharField(max_length=30,default='unspecified')
+      username=models.CharField(max_length=30)
 
       datecreated=models.DateTimeField(auto_now_add=True)
       dateupdated=models.DateTimeField(auto_now=True)
-      customer=models.ForeignKey(Customer,related_name='groups',blank=True,null=True)
 
       contact=models.ForeignKey(Contact,related_name='groups',blank=True,null=True)
+      customer=models.ForeignKey(Customer,related_name='groups',blank=True,null=True)
+     
      
 
       def __unicode__(self):
@@ -135,17 +140,20 @@ So  a contact may have many groups.(many to one relationship)
 
 class Message(models.Model):
       subject=models.CharField(max_length=30 ,blank=True,null=True)
+      username=models.CharField(max_length=30)
 
       sender=models.CharField(max_length=30)
 
       receiver=models.CharField(max_length=1000)
       body=models.TextField()
 
-      scheduledate=models.DateField(default=date.today())
+
+      scheduledate=models.DateTimeField(default=now)
       sent=models.BooleanField(default=False)
       optout=models.BooleanField(default=False)
-      customer=models.ForeignKey(Customer,related_name='messages')
 
+      customer=models.ForeignKey(Customer,related_name='messages',blank=True,null=True)
+      group = models.ManyToManyField("Group")
      
       def createmessagelog():
           pass
@@ -219,7 +227,7 @@ extending admin
 '''
 
 class CustomerAdmin(admin.ModelAdmin):
-      list_display=('name','email','mobilenumber')
+      list_display=('username','email','mobilenumber')
 
 
       search_fields=('name','email','mobilenumber','companyname')
@@ -229,9 +237,20 @@ class CustomerAdmin(admin.ModelAdmin):
       inlines=[MessageInline]
       ordering=('-datecreated',)
 
+
+
+class GroupAdmin(admin.ModelAdmin):
+      list_display=('groupname','contact','customer')
+
+
+      search_fields=('groupname','contacts','customer')
+      list_filter=('datecreated','dateupdated')
+      inlines=[ContactInline]
+      ordering=('-datecreated',)
+
 admin.site.register(Message)
 
-admin.site.register(Group)
+admin.site.register(Group,GroupAdmin)
 admin.site.register(Contact)
 
 

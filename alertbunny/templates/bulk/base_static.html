@@ -1,0 +1,128 @@
+<!DOCTYPE html>  
+<html lang="en">
+
+
+	<head>
+       
+        {% block title %}
+        	<title>Welcome To AlertBunny!</title>
+        {% endblock title %}
+        <!--The above will make sure we are able to overwrite and get unique titles for every page -->
+		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+
+
+	</head>
+
+	<style>
+  		.hr { height:0; width:1000px;  border-top:3px solid orange; margin-left:170px; }
+  		.hr hr { display:none; }
+	</style>
+		
+		
+	<body bgproperties="fixed">
+
+		<!--logo-->     
+
+				
+					{% ifnotequal user.username ''%}
+						<div  style="float:left;margin-left:200px; background-color:; width:150px; height:100px;margin-top:-100px;">
+				     	<img src="/static/img/logo.png"/>
+						</div>
+					
+						<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
+						Welcome &nbsp <i class="icon-user"></i> &nbsp {{user.username}} &nbsp <a href="/bulk/sendsms">SEND SMS</a>
+						 &nbsp <a href="/reg/logout">LOGOUT</a>
+						</div>
+						<!--top orange line-->
+						<div style="margin-top:100px;" class=hr><hr/></div>
+
+
+					{% else %}
+						<div style="float:left;margin-left:200px; background-color:; width:150px; height:100px;margin-top:-100px;">
+				     	<img src="/static/img/logo.png"/>
+						</div>
+
+<!--login form-->	<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
+						You are not logged in, please <a href="/reg/login">LOGIN</a>
+						</div>
+						<!--top orange line-->
+						<div style="margin-top:100px;" class=hr><hr/></div>
+						
+					
+						
+<!--top orange line-->	
+
+						
+					{% endifnotequal %}
+
+
+	
+<!--bunny top menu list-->
+	 <div class="bunnymenu" style="margin-left:180px;">
+     		<ul class="nav nav-pills nav-stacked">
+     		 	<li><a class="example" rel="popover" title="Welcome" data-content="Home" href="/reg/login"><img src="/static/img/icon/home.gif" width="20" height="20"/> &nbsp Home</a></li>
+     		 	<li><a class="example" rel="popover" title="Our awesome services..." data-content="Click to see our awesome services" href="/bulk/features"><img src="/static/img/icon/features.jpg" width="20" height="20"/> &nbsp Features</a></li>
+		 	 	<li><a class="example" rel="popover" title="Our cheap rates" data-content="Click to see our cheap rates" href="/bulk/buyCredit"><img src="/static/img/icon/credits.jpg" width="20" height="20"/> &nbsp Buy Credits</a></li>
+		 	 	<li><a class="example" rel="popover" title="Your answers are here" data-content="Click to see your solution" href="/bulk/faqs"><img src="/static/img/icon/faq.jpg" width="20" height="20"/> &nbsp FAQs</a></li>
+				<li><a class="example" rel="popover" title="Who we are..." data-content="Click to see who we are" href="/bulk/aboutUs"><img src="/static/img/icon/abtUs.jpg" width="20" height="20"/> &nbspAbout Us</a></li>
+		    	<li><a class="example" rel="popover" title="Get to us" data-content="Get to hear from  us" href="/bulk/contactUs"><img src="/static/img/icon/contact-us.png" width="20" height="20"/> &nbsp Contact Us</a></li>     		 </ul>
+	     		 
+     		 
+     		 
+     	</div>
+			
+		
+		
+		{% block content %}
+			
+             
+		{% endblock %}
+
+ 	
+		
+				
+		
+		
+<!--some sick javascript function call@Nana B.-->
+
+
+	 <script src="/static/bootstrap/js/jquery.js"></script>	
+	 <script src="/static/bootstrap/js/bootstrap.js"></script>
+	 <script src="/static/bootstrap/js/bootstrap-transition.js"></script>
+	<script src="/static/bootstrap/js/bootstrap-carousel.js"></script>
+	<script type="text/javascript">
+ 		 $(function(){
+     	 $('#myCarousel').carousel({interval:5000});
+ 	 })
+ 	 </script>		
+  
+	<script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+		<script type="text/javascript">
+ 		 $(function(){
+     	 $(".alert").alert();
+ 	 })
+ 	 </script>
+ 	 
+ 	 <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('#myModal').modal('show');
+ 	 	
+ 	 	})	
+ 	 	</script>
+ 	 	
+ 	 	 <script src="/static/bootstrap/js/bootstrap-popover.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('.example').popover({placement:'bottom'});
+ 	 	})	
+ 	 	</script>
+ 	 	
+ 	 	 <script src="/static/bootstrap/js/bootstrap-collapse.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$(".collapse").collapse();
+ 	 	})	
+ 	 	</script>
+	</body>
+</html>

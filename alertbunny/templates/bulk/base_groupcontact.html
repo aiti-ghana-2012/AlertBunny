@@ -1,0 +1,96 @@
+{% extends "bulk/base.html" %}
+
+
+{%block title%}
+<title>Message Sent</title>
+{%endblock title%}
+{% block content %}
+
+<fieldset>
+<div style="overflow:auto ;position:; width:200px; height:500px; margin-left:200px; margin-right:; margin-top:50px; border:;">
+ <legend><b style="">Quick Links</b></legend>
+	<div class="left_menu">
+	
+	
+  		<ul class="nav nav-pills nav-stacked">
+                        <li><a href="/bulk/sendsms/"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp send sms</a></li>
+  
+  			<li><a href="/bulk/group/"><img src="/static/img/icon/group.png" width="30" height="30"/> &nbsp Contacts</a></li>
+  			<li><a href="/bulk/profile/"><img src="/static/img/icon/profile.png" width="30" height="30"/> &nbsp profile</a></li>
+  			<li><a href="/bulk/sentsms/"><img src="/static/img/icon/send.png" width="30" height="30"/> &nbsp Sent</a></li>
+  			<li><a href="/bulk/optout/"><img src="/static/img/icon/opt-out.jpg" width="30" height="30"/> &nbsp Opt-out</a></li>
+  			<li><a href="/bulk/scheduled/"><img src="/static/img/icon/schedule.png" width="30" height="30"/> &nbsp Scheduled msgs</a></li>
+  			</ul>
+  
+  		</div>
+  	</div>
+	</fieldset>
+
+<div style="overflow:auto;width:600px; height:700px; border:3px solid orange; background-color:white; margin-left:500px; margin-top:-505px; margin-bottom:;">
+	<h4>&nbsp {{user.username}}'s &nbsp {{group.groupname}} group contacts</h4><hr/>
+	
+	{% ifequal contacts.count 0 %}
+        <a href="/bulk/addcontacts/{{group.id}}">Add New Contact</a>&nbsp
+         <a href="/bulk/group/">Add New Group </a><hr/>
+	<p> There are no contacts.</p>
+
+	{% else %}		
+	<em> {{contacts.count}}  Contacts(s) for this group.</em>
+        <a href="/bulk/addcontacts/{{group.id}}">Add New Contact</a>&nbsp
+        <a href="/bulk/addgroup/">Add New Group </a><hr/>
+        <table class="table table-striped table-bordered table-condensed">
+                <thead>
+                       <tr>
+                        <th>Contact Name(s) </th>
+                        <th> Contact Number(s)</th>
+                       </tr>
+                </thead>
+	{% for m in contacts %}
+		
+                <tbody>
+                    <tr>
+                          <td style="font-size:14px; text-align:justify;"> {{m.groupname}}</td>
+                          <td style="font-size:14px; text-align:justify;"> {{m.contactnumber}}</td>
+                   </tr>
+                </tbody>
+                
+                
+
+	
+
+	{% endfor %}
+         </table>
+	{% endifequal %}
+
+</div>
+
+<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:;" >
+ 	<hr style="border:2px solid gray;"/>
+ 	<ul class="breadcrumb" style>
+ 	 <li>
+ 	 <a href="/reg/login">Home </a><span class="divider">/</span></li>
+   <li>
+    <a href="/bulk/features">Features</a> <span class="divider">/</span>
+   </li>
+   <li>
+   <a href="/bulk/buyCredit">Buy Credits</a></li><span class="divider">/</span>
+   <li>
+    <a href="/bulk/faqs">FAQS</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/aboutUs">About Us</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/contactUs">Contact Us</a>
+   </li>
+   
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   &nbsp &nbsp 
+   <li><div style="text-align:right;"><a href="">Terms and Conditions</a> Copyright &nbsp &copy; 2012 , 		KODEIT SYSTEMS</div></li>
+</ul>
+ 	</div>		
+{% endblock %}
+
+
+			
+

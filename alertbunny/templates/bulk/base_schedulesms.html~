@@ -6,6 +6,7 @@
 {%endblock title%}
 {% block content %}
 
+
 <script type="text/javascript">
     var datefield=document.createElement("input")
     datefield.setAttribute("type", "date")
@@ -31,7 +32,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 <form action="." method="post" style="margin-left:20px;">
             <fieldset class="">
 		{{ form.as_p }}
-     <input type="date" id="date" name="date" size="20" />
+     <!--<input type="date" id="date" name="date" size="20" />-->
      <input type="submit" >
     
      </fieldset>

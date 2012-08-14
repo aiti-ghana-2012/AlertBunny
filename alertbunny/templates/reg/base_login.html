@@ -24,10 +24,10 @@
 
 
 {% ifnotequal invalidMsg '' %}
-	<div class="alert alert-error fade in" style="float:right;width:700px;margin-top:-165px;margin-bottom:98px;margin-right:140px;">
+	<div class="alert alert-error fade in" style="float:right;width:800px;margin-top:-165px;margin-bottom:98px;margin-right:140px;">
 	<a class="close" data-dismiss="alert" href="#my-alert">&times;</a>
 	<h4 class="alert-heading">Login Failure!</h4>
-	{{ invalidMsg }}
+	<p style="text-align:justify;">{{ invalidMsg }}</p>
 	</div>
 
 {% endifnotequal %}
@@ -47,19 +47,38 @@
 	
 
 <!--create account-->
-<div style="position:static;width:260px; height:300px; border:;background-color:; margin-left:200px; margin-top:10px;">
+<div style="position:;width:260px; height:300px; border:;background-color:; margin-left:200px; margin-top:10px;">
 		<form class="">
 			<fieldset>
 			<legend><b style="">Don't have an account?</b></legend>
-  			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Enter Name">
-			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="         	    Email">
-			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Password">		
+  			<!--<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Enter Name"/>
+			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="    		Enter Email"/>
+			<input style="border: 1px solid orange;" type="text" class="span3" placeholder="		Enter Password"/>		
 			
 
-			
-		  	<button class="btn btn-warning btn-large" type="submit" value="" ><b>Create Account</b></button>
+			<div class="">
+            <input style="margin: 0; float: left;" align="absmiddle" name="agree" id="agree" type="checkbox" value="" />
+
+          <div style="padding-left:15px;font-size:11px;"><p>I have read and agree to the<br/> 
+          <a href="#" target="_blank">Terms of Service </> and <a href="#" target="_blank">Privacy Policy </a><br/>
+           and to receive communication from <br/>
+           AlertBunny electronically.</p></div>
+          </div>
+        </div>-->
+		  	<a href="/reg/register"><button style="margin-left:0px; margin-top:5px;"class="btn btn-warning btn-large" type="submit" value="" ><b>Create Account</b>
+		  	</button></a>
 			</fieldset>
 		</form>
+<!--facebook feed-->
+         
+<div style=" height:200px; width:250px;text-align:justify;" >
+				 <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/groups/345599648851190/"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"></iframe>		
+		</div>
+		
+		
+		
 
 	</div>		
 	
@@ -68,13 +87,13 @@
 
 
 
-<div id="myCarousel" class="carousel slide" style="position:;width:650px; height:373px; border:1px solid orange; background-color:; margin-left:500px; margin-top:-300px;">
+<div id="myCarousel" class="carousel slide" style="position:;width:650px; height:373px; background-color:; margin-left:500px; margin-top:-300px;">
             <div class="carousel-inner">
               <div class="item active">
                 <img src="/static/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
                 <div class="carousel-caption">
-                  <h4>First Thumbnail label</h4>
-                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <h4>Boost Your Customer Service</h4>
+                  <p> </p>
                 </div>
               </div>
               <div class="item">
@@ -95,35 +114,48 @@
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
             <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
           </div>
-
-
-<!--orange line below  style="position:;width:650px; height:373px; border:1px solid orange; background-color:; margin-left:500px; margin-top:-300px;"-->
-	<div style="margin-top:5px;margin-bottom:0px;text-align:right;" class=hr><hr/></div>
-
-
-
-	
-
 	
 		
 		<!--orange line below--><div style="margin-top:5px;margin-bottom:0px;text-align:right;" class=hr><hr/></div>
         <div style="margin-left:80px;margin-top:-20px;">
         	 <img  src="/static/img/tab1.png" width="400" height="230"/>
-        		<div style="position:absolute;margin-top:-120px;width:190px;border:;margin-left:125px;">
-        		<strong style="text-align:justify;color:white; font-size:35px;"> Register </strong>
+        		<div style="position:absolute;margin-top:-150px;width:190px;border:;margin-left:125px;">
+        		<small style="text-align:justify;color:white; "><strong style="font-size:25px;">Register </strong><br/> Start enjoyiny our awesome service by clicking <a href="/reg/register/">HERE<a></small>
         		</div>
 		    <img  src="/static/img/tab2.png" width="400" height="230"/>
-		  		<div style="position:absolute;margin-top:-120px;width:190px;border:;margin-left:527px;">
-		  		<strong style="text-align:justify;color:white; font-size:35px;"> LOGIN </strong>
+		  		<div style="position:absolute;margin-top:-150px;width:190px;border:;margin-left:527px;">
+		  		<small style="text-align:justify;color:white; "><strong style="font-size:25px;">Login </strong><br/>Login in <a href="/reg/login/">HERE</a> after a successful registration </small>
 		  		</div>
 		    <img  src="/static/img/tab3.png" width="400" height="240"/>
-		  		<div style="position:absolute;margin-top:-120px;width:190px; height:50px;border:;margin-left:930px;">
-		  		<strong style="text-align:justify;color:white; font-size:35px;"> Create and Send SMS </strong>
+		  		<div style="position:absolute;margin-top:-150px;width:190px; height:50px;border:;margin-left:930px;">
+		  <small style="text-align:justify;color:white; "><strong style="font-size:25px;">Send SMS </strong><br/> Now send bulk SMS after a successful Login </small>
 	     </div>
 
 
-	<div style="margin-top:;margin-bottom:; width:1000px;margin-left:92px;text-align:right;" >
- 	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
+	<div style="margin-top:;margin-bottom:; width:1000px;margin-left:92px;text-align:;" >
+ 	<hr style="border:2px solid gray;"/>
+ 	<ul class="breadcrumb" style>
+ 	 <li class="active">Home <span class="divider">/</span></li>
+   <li>
+    <a href="/bulk/features">Features</a> <span class="divider">/</span>
+   </li>
+   <li>
+   <a href="/bulk/buyCredit">Buy Credits</a></li><span class="divider">/</span>
+   <li>
+    <a href="/bulk/faqs">FAQS</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/aboutUs">About Us</a> <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/contactUs">Contact Us</a>
+   </li>
+   
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   &nbsp &nbsp 
+   <li><div style="text-align:right;"><a href="">Terms and Conditions</a> Copyright &nbsp &copy; 2012 , 		KODEIT SYSTEMS</div></li>
+</ul>
+ 	
  	</div>		
 
 

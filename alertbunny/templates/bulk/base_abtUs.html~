@@ -1,4 +1,4 @@
-{% extends "bulk/base.html" %}
+{% extends "bulk/base_static.html" %}
 
 
 {%block title%}
@@ -6,125 +6,141 @@
 {%endblock title%}
 
 {% block content %}
- 	{% ifequal user.username ''%}
-
-		<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
-			You are not logged in &nbsp <a href="/reg/login">LOGIN</a>
-		</div>
-		<!--top orange line-->
-		<div style="margin-top:100px;" class=hr><hr/></div>
-	{% else %}
-	<div style="float:right; margin-right:200px; margin-top:-30px;"class="form-inline">
-						Welcome &nbsp <i class="icon-user"></i> &nbsp {{user.username}} &nbsp <a href="/reg/logout">LOGOUT</a>
-						</div>
-						<!--top orange line-->
-						<div style="margin-top:100px;" class=hr><hr/></div>
-	
-	{% endifequal  %}
-<fieldset>	
 
 	<div style="overflow:auto;width:900px; height:700px; border:3px solid orange; background-color:white; margin-left:200px; margin-top:10px; margin-bottom:;">
 	
-		
-		<div style="text-align:center;"><b style="">About Us</b></div>
-		
-	<div class="accordion" id="accordion2">
-	<legend style="text-align:center;"><b style="">Our Team</b></legend>
+		<div class="accordion" id="accordion2">
             <div class="accordion-group">
-              <div class="accordion-heading">
+              <div class="accordion-heading" style="font-size:24px; text-align:center;">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                  C.E.O
+                  About Alert Bunny
                 </a>
               </div>
-              <div id="collapseOne" class="accordion-body collapse in">
+              <div id="collapseOne" class="accordion-body collapse">
                 <div class="accordion-inner">
-                  <img src="" width="" height=""/>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson 
-                  ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
-                  Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put 
-                  a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-                  helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
-                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
-                  synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                 AlertBunny is a mobile web application that allows its users to send bulk SMS. The system comes with a scheduler that lets users schedule their messages ahead of time. This means that the user does not necessarily need to be behind the PC to give the final push for the messages to be sent to the targeted recipients. However, a notification is sent to the user a day or two depending on the time the user set it to alert him, reminding him of the pending messages about to be sent. With this information, the user can decide whether not to do anything and let it send, edit or delete the message. This saves the user from embarrassment. The system also comes with a templates feature for easy starts on messages, and an import feature to add contacts from an excel spreadsheet.
                 </div>
               </div>
             </div>
             <div class="accordion-group">
-              <div class="accordion-heading">
+              <div class="accordion-heading" style="font-size:24px; text-align:center;">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                 Chief Engineer
+                  Our Team
                 </a>
               </div>
-              <div id="collapseTwo" class="accordion-body collapse in">
+              <div id="collapseTwo" class="accordion-body collapse">
                 <div class="accordion-inner">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
-                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. 
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur 
-                  butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably 
-                  haven't heard of them accusamus labore sustainable VHS.
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon 
+                  officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                   moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim 
+                   keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher 
+                   vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't 
+                   heard of them accusamus labore sustainable VHS.
                 </div>
               </div>
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                  Financial Officer
+                  Chief Executive officer (C.E.O), William Obeng
                 </a>
               </div>
               <div id="collapseThree" class="accordion-body collapse in">
                 <div class="accordion-inner">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
-                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you 
-                  probably haven't heard of them accusamus labore sustainable VHS.
+                  <img align="left" src="/static/img/team/will.jpg" width="100" height="100" style="padding-right:10px;"/>
+                  <p  style="text-align:justify;">
+                  Obeng William is the Chief Executive Officer. He has keen interest in Internet technologies and programming. He is one of our talented programmers and with his experience as a developer, he sees to it that all projects are completed in time. He is also a team player.
+He is skilled in PHP, Oracle, Javascript, CSS, HTML, Python, Java, Django. He is in his final year at the University of Ghana studying Computer Science and Statistics.</p>
                 </div>
               </div>
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-                  Marketing Officer
+                  Chief Engineer (C.E), Nanabayin Menyah
                 </a>
               </div>
               <div id="collapseFour" class="accordion-body collapse in">
                 <div class="accordion-inner">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
-                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you 
-                  probably haven't heard of them accusamus labore sustainable VHS.
+                  <img align="left" src="/static/img/team/nana.jpg" width="100" height="100" style="padding-right:10px;"/>
+                  <p style="text-align:justify;">Nanabayin Menyah is the Chief Engineer. He is in charge of design thought processes and implementation of the system. Like painting is to a good artist so is programming to him. He is a passionate team player and likes working on database driven applications. He has a great deal of experience in programming languages like C, VB.NET, ASP.NET, PHP, Java, Gambas, C++, and Python. He is also skilled in Oracle, MySQL, HTML. CSS, Javascript and Django. He is currently a final year student majoring in Mathematics and Computer Science at the University of Ghana, Legon..</p>
                 </div>
               </div>
-              <div class="accordion-group">
+            </div>
+             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-                  Public Relation & People Officer
+                  Chief Financial Officer (C.F.O), Dzidzor Adogla-Bessa
                 </a>
               </div>
               <div id="collapseFive" class="accordion-body collapse in">
                 <div class="accordion-inner">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                  3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan 
-                  excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you 
-                  probably haven't heard of them accusamus labore sustainable VHS.
+                  <img align="left" src="/static/img/team/dzidzor.jpg" width="100" height="100" style="padding-right:10px;"/>
+                  <p style="text-align:justify;">Dzidzor Adogla-Bessa is our Finance Executive. She is in charge of all our economic affairs. She is finance oriented and very time conscious, “for time wasted is money lost”; her favourite saying. She has great skills in financial analysis, and time management. She possesses a knowledge of programming and scripting languages namely, C, HTML, Python, Django and PHP and a fair knowledge of CSS. She is currently a Computer Engineering student at the University of Ghana, Legon.</p>
                 </div>
               </div>
-            
+            </div>
+             <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+                  Chief Marketing officer (C.M.O), Alexander Antwi
+                </a>
+              </div>
+              <div id="collapseSix" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  <img align="left" src="/static/img/team/alex.jpg" width="100" height="100" style="padding-right:10px;"/>
+                  <p style="text-align:justify;">Alexander O.A Antwi is the Marketing Manager. He is currently studying computer engineering in KNUST. He loves to explore and experiment. He has undertaken courses in C, CSS, HTML, Python and Django. He is an affable person and always wants to solve problems, especially the ones that have not been tackled yet in society. He has had experiences in marketing products. He is always curious about finding out what people want and finding a way to help them out. </p>
+                </div>
+              </div>
+            </div>
+             <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+                  Public Relation Officer (P.R.O), Nii Boye Adjei-Mensah
+                </a>
+              </div>
+              <div id="collapseSeven" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  <img align="left" src="/static/img/team/nii.jpg" width="100" height="100" style="padding-right:10px;"/>
+                  <p style="text-align:justify;">
+Nii Boye Mensah Adjei is the Public Relations Officer. He is well versed in the process of software engineering. He has skills in PHP, HTML, CSS, Python, Java and Django. He is also exceptional when it comes to communication and is a great team player. He is bold and well-spoken. He is in his final year majoring in Computer Science at the Ashesi University College.</p>
+                </div>
+              </div>
+            </div>
           </div>
+
+		
   		
-  	</div>	
+  </div>	
   	
   	
 	
   	
   	
-	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:right;" >
- 	<hr style="border:2px solid gray;"/>Copyright &copy; 2012 , 		KODEIT SYSTEMS
+	<div style="margin-top:30px;margin-bottom:; width:1000px;margin-left:170px;text-align:;" >
+ 	<hr style="border:2px solid gray;"/>
+ 	<ul class="breadcrumb" style>
+ 	 <li>
+ 	 <a href="/reg/login">Home</a> <span class="divider">/</span></li>
+   <li>
+    <a href="/bulk/features">Features</a> <span class="divider">/</span>
+   </li>
+   <li>
+   <a href="/bulk/buyCredit">Buy Credits</a></li><span class="divider">/</span>
+   <li>
+    <a href="/bulk/faqs">FAQS</a> <span class="divider">/</span>
+   </li>
+   <li class="active">
+    About Us <span class="divider">/</span>
+   </li>
+   <li>
+    <a href="/bulk/contactUs">Contact Us</a>
+   </li>
+   
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   &nbsp &nbsp 
+   <li><div style="text-align:right;"><a href="">Terms and Conditions</a> Copyright &nbsp &copy; 2012 , 		KODEIT SYSTEMS</div></li>
+</ul>
  	</div>		
 	
 	<!--<form class="form-vertical" action="." method="post">
